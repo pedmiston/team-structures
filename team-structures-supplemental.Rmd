@@ -1,0 +1,56 @@
+### Simulations {-}
+
+We used an agent-based simulation to model the scalability of diachronic and
+synchronic strategies. In the simulations, problem solvers guessed combinations
+of between 1 and 4 items at random. Diachronic and synchronic strategies were
+provided the same number of guesses. Diachronic problem solvers guessed one at
+a time, while synchronic problem solvers guessed in parallel. If a guess
+yielded an item, it was added to the team inventory. For synchronic problem
+solvers, guesses were added to each participant's inventory immediately.
+
+The results show that as problem solvers are added to each team, a synchronic
+strategy becomes progressively less effective as compared to a diachronic
+strategy (Fig. \@ref(fig:bots-teamsize)). The reason is that synchronic players
+increasingly make the same incorrect guesses because each player is generating
+guesses from the same inventory. Diachronic players in contrast are not as
+likely to generate the same incorrect guesses as a previous generation because
+they are generating guesses from different sets of items.
+
+(ref:bots-teamsize) Result of simulations of diachronic and synchronic problem solvers.
+
+```{r bots-teamsize, fig.width=5, fig.cap="(ref:bots-teamsize)"}
+bots_team_size_plot
+```
+
+### Guessing strategy {-}
+
+Although participants in the isolated strategy discovered more tools
+after four sessions than diachronic teams after four generations,
+they did not engage in a more efficient guessing strategy. As in Experiment 1,
+participants in the diachronic condition had the most effective guessing
+strategy in that they generated a lower proportion
+of redundant guesses than participants in the isolated condition,
+but in Experiment 2, this different was not statistically significant,
+`r exp2$prop_redundant_strategy`. For participants in both strategies,
+the proportion of redundant guesses decreased over generations and sessions,
+`r exp2$prop_redundant_gen`. However, this decrease was not affected
+by strategy, `r exp2$prop_redundant_inter`.
+
+For the proportion of unique guesses, there were no differences between
+participants in either strategy, `r exp2$prop_unique_strategy`, or
+over generations `r exp2$prop_unique_gen`. The change in proportion
+of unique guesses over generations was not affected by strategy,
+`r exp2$prop_unique_inter`.
+
+(ref:guessing-strategy-by-generation) Proportion of guesses by participants in
+diachronic and isolated conditions over generations.
+
+```{r guessing-strategy-by-generation, fig.width=5, fig.cap="(ref:guessing-strategy-by-generation)"}
+prop_guess_types_selfother_plot
+```
+
+If participants in the isolated strategy are not guessing more efficiently
+than participants in the diachronic strategy, why then are they able
+to accumulate more tools than participants in the diachronic condition?
+To answer this question, we investigated the time spent recreating
+the inherited tools versus time spent inventing new tools.

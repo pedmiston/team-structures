@@ -1,0 +1,832 @@
+---
+title: "The effectiveness of cultural inheritance as a problem solving strategy"
+author:
+  - { name: Pierce Edmiston, affiliation_id: 1 }
+  - { name: Maxime Derex, affiliation_id: 2 }
+  - { name: Gary Lupyan, affiliation_id: 1 }
+affiliation:
+  - id: 1
+    department: Department of Psychology
+    university: University of Wisconsin-Madison
+  - id: 2
+    department: Biosciences Department
+    university: University of Exeter
+email: pedmiston\@wisc.edu
+address: 1202 W. Johnson St., Department of Psychology, University of Wisconsin, Madison, WI 53703.
+bibliography: "references.bib"
+csl: "template/plos-one.csl"
+output:
+  bookdown::pdf_document2:
+    template: template/plos-one.tmpl
+    keep_tex: yes
+    number_sections: no
+abstract: |
+  Human cultures are able to accumulate bodies of problem solving knowledge that
+  no individual could create on their own. The cultural transmission of problem
+  solving knowledge occurs by different means, involving both vertical
+  transmission from one generation to the next, and horizontal transmission among
+  peers in the same generation. Previous efforts to understand the effectiveness
+  of cultural transmission as a problem solving strategy have focused on the
+  impact of sharing solutions among peers in the same generation, or studied 
+  both forms of cultural transmission in combination. Here we sought to tease apart
+  the effects of vertical and horizontal transmission among groups of people relative to
+  solving the same set of problems individually. Our analyses focus on whether
+  inheriting from a previous generation at the start of a problem solving task
+  results in different problem solving performance than would be achieved by
+  other means. We find that vertical transmission results in a unique form of
+  problem solving that in some cases may be more effective than alternative
+  strategies. Specifically, we find that vertical transmission may remediate the
+  cost of fixation incurred by isolated individuals, and that vertical
+  transmission scales more robustly than horizontal transmission with increasing
+  group size. These results improve our understanding of human cultural evolution
+  by revealing some of the mechanisms by which groups of problem solvers can
+  arrive at solutions to problems that individuals could not.
+---
+```{r team-structures-config, include=FALSE}
+library(knitr)
+library(crotchet)
+
+opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  results = "hide",
+  fig.width = 3,
+  fig.height = 3,
+  fig.crop = F
+)
+
+# Read all knitr chunks in external .R file
+read_chunk("team-structures.R")
+```
+```{r Setup}
+```
+
+# Introduction {-}
+
+```{r Intro}
+```
+
+Humans are not the only tool users in the animal kingdom [@Beck:1980animal],
+but we do seem to have the most of them. What sets human tool users apart may
+not be our ability to make tools, but our ability to use and improve tools that
+were first created by other people. This ability is often referred to as the
+"ratchet effect" [@Tomasello:1993vh; @Dean:2013dp], and is believed to be an
+important component of cumulative cultural evolution. One of the defining
+features of cumulative cultures is that groups of problem solvers, through
+generations of incremental improvement, can sustain complex tools and other
+solutions to problems that no individual could recreate on their own
+[@Boyd:2011gp]. Although the capacity to engage in cultural ratcheting is
+well-known, the effectiveness of cultural transmission as a strategy for
+solving problems is an area in need of further research. The purpose of this
+research was to better understand the effectiveness of cultural transmission in
+accumulating solutions to problems that no individual could recreate on their
+own.
+
+Groups of problem solvers can share information via both vertical and
+horizontal forms of cultural transmission [@Boyd:1985cu]. Vertical transmission
+involves passing cultural products from parent to child, whereas in horizontal
+transmission, cultural products are passed among peers in the same generation.
+Although both forms of cultural transmission involve social learning---learning
+that is enabled by the observation of or interaction with others
+[@Rendell:2011gk]---the consequences of either vertical or horizontal
+transmission on culture accumulation have not been directly compared. Here we
+tested whether problem solving knowledge that is inherited at the start of
+a problem solving task via vertical transmission has a different impact on
+problem solving performance than purportedly the same knowledge shared
+horizontally among problem solvers working in parallel.
+
+Previous research on the differences between vertical and horizontal
+transmission has found that some cultural products, such as religious beliefs,
+are more likely to be learned from parents than from peers [@Newcomb:1937vy;
+@Boyd:1985cu]. Whether individuals learn from parents or peers may also
+have consequences for the distribution of traits in a population. For example,
+@Bettinger:1999vv surveyed projectile points recovered in the Great Basin
+region, and found that in one region, the point designs were highly correlated
+with one another, whereas in a different region, the point designs were poorly
+correlated. They argued that these differences could be attributed to different
+forms of cultural transmission. Highly similar points are the expected result
+of a horizontal transmission process where members of the society copy the most
+prestigious hunters, whereas uncorrelated points would result from vertical
+transmission where each family innovated their own designs. This interpretation
+has been supported by experimental and computational simulations showing that
+groups of problem solvers result in greater convergence and smaller variation
+in design than than independently evolving lineages [@Mesoudi:2008vi;
+@Mesoudi:2008we].
+
+But in explaining how groups of problem solvers can solve problems that
+individuals cannot, previous research has focused on horizontal transmission
+while ignoring the potential role of vertical transmission. For example,
+@Derex:2015cbb had groups and individuals complete the same problem solving
+task, and found that a group strategy involving horizontal transmission
+proved more effective for discovering complex solutions than an isolated
+strategy. The adaptiveness of horizontal transmission over individual problem
+solving has been attributed to an advantage of parallel search in that groups
+are better able to search the space of possible solutions than individuals
+working alone [@Acerbi:2016ej]. Horizontal transmission among groups of
+problem solvers has been shown to be adaptive for a wider range of problem
+solving scenarios than individual learning [@Golman:2010fz; @Rendell:2010go].
+
+When vertical transmission has been studied directly, it has often not been
+compared to alternative strategies for solving the same problems. For example,
+@Caldwell:2008gf had participants create paper airplanes or spaghetti towers in
+a transmission chain design involving vertical transmission, where new
+generations of problem solvers learned from the previous generation. The
+results showed that performance tended to improve along the transmission
+chains, suggesting that human problem solvers are skilled at using and
+improving solutions to problems that were created by others. But since the
+performance of the transmission chains was not compared to performance of
+isolated individuals given the same opportunities, we do not know whether
+vertical transmission by itself can result in the accumulation of problem
+solving knowledge that no individual could recreate on their own.
+
+To better understand the effectiveness of vertical transmission as a strategy
+for solving problems, we conducted an experiment where participants completed
+the same problem solving task using one of three strategies. We refer to the
+strategy involving vertical transmission as **diachronic collaboration**. In
+diachronic collaboration, participants completed the problem solving task one
+at a time, and at the end of the session, they passed the solutions they had
+discovered on to the next generation. The next generation, rather than starting
+from scratch, starts off with the solutions inherited from the previous
+generation. In synchronic collaboration, participants work in a team on the
+same problem solving task at the same time and in parallel, sharing solutions
+with each other as they are discovered. Both diachronic and synchronic
+strategies are compared to an isolated strategy in which individuals work alone
+on the same problems.
+
+In our comparison of diachronic, synchronic, and isolated strategies, we
+controlled for labor time. Labor time can be contrasted with calendar time
+and learning time (Fig. \@ref(fig:types-of-time)). We controlled for labor time
+so that our results can be interpreted in terms of the effect each problem
+solving strategy has on individual problem solving ability. Without controlling
+for labor time, any differences between the three strategies are more difficult
+to interpret. For example, if only calendar hours are controlled, an isolated
+individual given 30 minutes could theoretically be compared to a synchronic
+team given 30 minutes _regardless of the size of the synchronic team_. This
+fact makes it difficult to understand the effect of teamwork on individual
+performance when only controlling for calendar time [@Propp:2003kj;
+@Tindale:1992ub].
+
+(ref:types-of-time) Team structures controlling for labor time. **Left.** Team
+structures. Each node is a person. **Middle.** Relationship between labor time
+and calendar time. Synchronic teams spend labor time more quickly than the
+other strategies. **Right.** Learning times by strategy, showing that an
+isolated strategy provides the most time for individual learning.
+
+```{r types-of-time, fig.width=5, fig.height=2, fig.cap="(ref:types-of-time)"}
+gridExtra::grid.arrange(
+  crotchet::read_graphviz("team-structures", package = "totems"),
+  gg_time,
+  gg_person,
+  nrow = 1,
+  widths = c(0.25, 0.375, 0.375)
+)
+```
+
+Our results are reported in three experiments. In Experiment 1, we measured the
+effectiveness of the simplest form of diachronic inheritance involving two
+generations of problem solvers collaborating via vertical transmission. We find
+that diachronic collaboration is similarly effective to both alternative
+strategies. In Experiment 2, we compared four generations of diachronic problem
+solvers to four sessions of isolated problem solving in order to tease apart
+the effects of inheriting from someone else as opposed to inheriting from
+oneself. We find that an isolated strategy results in better final performance,
+but not any more efficient guessing. Most interestingly, we find that
+diachronic collaboration may prove effective in relieving the costs of fixation
+often incurred by individuals working alone. In Experiment 3, we investigated
+how the effectiveness of diachronic and synchronic collaboration is affected by
+increasing group size. Here we find that diachronic collaboration scales better
+as more people are added as opposed to synchronic collaboration, in which
+teamwork may become more inefficient with larger groups.
+
+# Methods {-}
+
+```{r Methods}
+```
+
+## Team structures {-}
+
+Participants were randomly assigned to complete the same problem solving task in
+different team structure conditions (Fig. \@ref(fig:team-structures-all)).
+Participants in the diachronic condition worked on the problem solving task one
+at a time. At the end of a diachronic participant's session, the solutions they
+discovered were passed on to be inherited by a single participant assigned
+to the next generation of the same team.
+
+Participants assigned to the synchronic team structure worked independently and
+in parallel in teams of two or four. Their labor was coordinated such that
+solutions discovered by one team member were immediately shared with the other
+members of the team.
+
+Isolated participants completed the problem solving task as individuals, only
+benefiting from the solutions they could discover on their own. Isolated
+participants completed the experiment in a single 50 minute session or, in
+a different condition, came back for four 25 minute sessions.
+
+(ref:team-structures-all) Team structures. Diachronic participants worked one
+at a time, each inheriting the solutions discovered by the previous generation,
+labeled G1-G4. Isolated participants were recruited for a single 50 minute
+session, or returned for four 25 minute sessions, labeled S1-S4. Synchronic
+participants were assigned to teams of two or four individuals that worked
+at the same time.
+
+```{r team-structures-all, fig.width=6, fig.cap='(ref:team-structures-all)'}
+crotchet::draw_graphviz("team-structures-all", package = "totems")
+```
+
+## Problem solving task {-}
+
+Participants played the Totem game adapted from @Derex:2015cbb. Their task
+was to discover tools that could be used with the ultimate goal of creating "a sacred
+totem to appease the gods." To build a totem, participants first needed to
+construct an axe out of three independently discovered tools: a refined stick
+used as a handle, a sharpened rock for the blade, and a string wound from bark
+fibers for binding (Fig. \@ref(fig:landscape-sample-1)). More advanced tools
+produce larger and more intricate totems.
+
+(ref:landscape-sample) A sample of the solution landscape. The top row of 6
+items were available to problem solvers at the start of the game. New tools
+could be produced through the combination of different items (more than one
+arrow points to the item) or through the refinement of a single item (a single
+arrow points to the item). The axe is required to construct the first totem
+pole.
+
+```{r landscape-sample, fig.width=5, fig.cap="(ref:landscape-sample)", eval=FALSE}
+draw_image("landscape-sample.gv", package = "totems")
+```
+
+Once a tool was discovered, the recipe for its creation---a list of the items
+that had to be combined in order to create the tool---was recorded in an
+innovation record. Participants could review their past discoveries by clicking
+on a tool to see its recipe.
+
+The innovation record was also used as the means for sharing solutions among
+members of a team and across sessions. For diachronic participants, the
+innovation record of the previous generation participant was available to them
+from the start of the experiment. They could view their predecessors'
+innovation record and see how to make each one. Participants assigned to the
+synchronic condition could view the innovation records of each of their
+teammates at any point during the session. Once someone on a team discovered
+a tool, the recipe for its creation could be viewed by all members of the team.
+Isolated participants returning for multiple sessions started with the
+innovation record from their previous session.
+
+The sharing of innovation records provided the recipes for creating
+the tools, but not the tools themselves. In order to use these tools in further
+combinations, the tools, including all of the constituent parts, first had to
+be created.
+
+(ref:interface) The Totem game. Participants generated guesses
+by dragging items into the **Workshop** and selecting the "Try" button. If the
+guess created a tool, it could be dragged into the **Stock** panel, and used
+again in later combinations. Once segments of a totem were made through
+cutting, carving, and painting, they could be dragged into the **Totem** panel
+for scoring.
+
+```{r interface, fig.width=6, fig.cap="(ref:interface)"}
+draw_image("gameplay", "totems")
+```
+
+## Participants {-}
+
+Participants were undergraduate students at the University of Wisconsin-Madison
+who completed the experiment in exchange for course credit. Students received
+credit based on the duration of each completed session. Sessions were either 25
+minutes or 50 minutes. Participants assigned to the Isolated, multi-session
+condition who completed all four sessions were awarded additional credit as
+an incentive to prevent dropout.
+
+Total participant and team recruitment is presented in Table
+\@ref(tab:counts-table). Data from these participants is reported as
+Experiments 1-3. Although each experiment introduces new data, some data is
+reported in multiple experiments[^diachronic]. Specifically, data from first and second
+generation diachronic participants is included in the analyses for all
+experiments. Data from third and fourth generation diachronic participants is
+reported in Experiment 2 and Experiment 3. Data from two-person synchronic
+teams is reported in Experiment 1 and Experiment 3. Because the
+same data are being analyzed in multiple experiments, no analyses
+across experiments are conducted.
+
+(ref:condition-counts) Total participant and team recruitment across all experiments.
+
+```{r counts-table, results="asis"}
+kable(ConditionCounts, caption = "(ref:condition-counts)")
+```
+
+# Experiment 1: Simple diachronic inheritance {-}
+
+```{r 50min}
+```
+
+In Experiment 1, we compared the simplest form of vertical transmission---a
+two-person diachronic team where each person is given 25 minutes---to two
+alternative strategies for allocating the same 50 minutes of labor: isolated
+individuals working alone and two-person synchronic teams working in parallel
+(Fig. \@ref(fig:team-structures-50min)).
+
+(ref:team-structures-50min) Team structures compared in Experiment 1.
+
+```{r team-structures-50min, fig.cap="(ref:team-structures-50min)"}
+crotchet::draw_graphviz("team-structures-50min", package = "totems")
+```
+
+## Results {-}
+
+We compared the performance of participants assigned to use the diachronic,
+synchronic, and isolated strategies in three ways. First we compared performance
+based on the total number of tools that were discovered. Second we report
+guessing efficiency on a per-tool basis. Finally, we compared the guessing
+strategies used by participants in each condition. Our analyses focus on
+comparing the effectiveness of diachronic collaboration to the alternative
+strategies.
+
+### Total tools {-}
+
+The total number of tools discovered using each of the three strategies is
+shown in Fig. \@ref(fig:innovations-50min). Our primary hypothesis concerned
+the effectiveness of a diachronic strategy as compared to the alternative
+strategies for solving the same problems in the same amount of time. To test
+this, we fit a hierarchical linear model predicting the total number of tools
+discovered by each participant based on strategy, where strategy was
+dummy-coded such that second generation diachronic participants were the
+reference group. The hierarchical model included random intercepts for each
+team. The results showed that a diachronic strategy was similarly effective to
+either alternative strategy. Second generation diachronic participants
+discovered more tools on average than isolated individuals, but this
+difference was not statistically significant, `r exp1$DG2_v_I50`. Conversely,
+diachronic teams discovered fewer tools on average than two-person
+synchronic teams, but again this difference was not statistically significant,
+`r exp1$S2_v_DG2`.
+
+We also tested the effectiveness of teamwork compared to solving the same
+problems as individuals. To test this, we compared two-person teams (both
+diachronic and synchronic) to isolated individuals. In the hierarchical linear
+model, team strategy was coded with Helmert contrasts, and random intercepts
+for team were included. Teams discovered more tools than individuals,
+`r exp1$teamwork_stats`, without a significant residual difference between the
+diachronic and synchronic strategies, `r exp1$teamwork_residual`. Post hoc
+tests revealed that this effect of teamwork was driven primarily by synchronic
+teams discovering more tools than isolated individuals, `r exp1$S2_v_I50`.
+
+(ref:innovations-50min) Tools discovered in 50 labor minutes by strategy.
+**A.** Rate of innovation by labor hours. Each line is the average number of
+tools discovered by participants in each condition. **B.** Total
+tools by strategy. Each point is a single participant. Bars with errors
+show model predictions with ±1 standard error.
+
+```{r innovations-50min, fig.width=5, fig.height=3, fig.cap="(ref:innovations-50min)"}
+grid.arrange(
+  innovation_rate_50min_plot + ggtitle("A"),
+  num_innovations_50min_plot + ggtitle("B"),
+  nrow = 1,
+  widths = c(0.55, 0.45)
+)
+```
+
+### Guesses per tool {-}
+
+In addition to comparing the three strategies in terms of total number of
+tools discovered, we also performed a more fine-grained analysis of guessing
+behaviors. We compared the three strategies in terms of how many guesses were
+required to discover each tool. To count the number of guesses that were
+required for each tool, we tallied all guesses made from the moment in which
+a new tool was eligible for discovery until that tool was discovered. A new
+tool was eligible for discovery once all of the items required to create the
+new tool had been discovered. We refer to new tools that are eligible for
+discovery as "adjacent", since they are adjacent to the current inventory in
+the solution landscape. The minimum number of adjacent tools for any inventory
+was one, indicating that there was a single tool that must be discovered before
+new tools can be created. The median number of adjacent tools was four. When
+there was more than one adjacent tool, each incorrect guess was counted toward
+the total number of guesses required for each of the adjacent tools.
+
+As expected, we found the second generation diachronic participants benefited
+from inheritance in that they required significantly fewer guesses to produce
+each tool that they inherited relative to the same tools being discovered
+by participants in conditions without inheritance,
+`r exp1$guesses_per_item_inheritance` (Fig. \@ref(fig:guesses-per-innovation)A).
+
+However, this benefit to inheritance in terms of fewer guesses per
+tool did not extend to tools that had not been discovered by the previous
+generation. Comparing the number of guesses per tool for only the tools that
+were newly discovered by the second generation diachronic participants did not
+reveal a benefit to inheritance that extended beyond the inherited solutions,
+`r exp1$guesses_per_new_item_inheritance`
+(Fig. \@ref(fig:guesses-per-innovation)B).
+
+(ref:guesses-per-innovation) Guesses per tool by inheritance condition. Each
+thin gray line shows the average number of guesses for a particular tool. The
+"No inheritance" condition includes guesses from synchronic and isolated
+participants, as well as first generation diachronic players. The inheritance
+condition includes second generation diachronic participants only. **A.**
+Guesses per tool for tools inherited from an ancestor. **B.** Guesses per tool
+for new tools, not inherited from an ancestor.
+
+```{r guesses-per-innovation, fig.width=5, fig.cap="(ref:guesses-per-innovation)"}
+gridExtra::grid.arrange(
+  guesses_per_item_plot + ggtitle("A"),
+  guesses_per_new_item_plot +
+    ggtitle("B") +
+    theme(
+      axis.title.y = element_blank(),
+      axis.text.y = element_blank()
+    ),
+  nrow = 1,
+  widths = c(0.55, 0.45)
+)
+```
+
+### Guessing strategy {-}
+
+The analyses of guessing effectiveness reported above treat all incorrect
+guesses as the same, but in reality some guesses are more informative than
+others. Specifically, an optimal guessing strategy is to only attempt unique
+guesses that have never been tried before. However, participants often attempt
+redundant guesses, thus employing a suboptimal guessing strategy. To quantify
+the guessing strategies used by participants in each team strategy, we
+classified each guess into one of four types, listed in Table
+\@ref(tab:guess-types), and tested whether team strategy had an impact on
+guessing strategy.
+
+(ref:guess-types) Guess types. Each guess can be categorized into one of four
+types. Redundant guesses were incorrect guesses made (at least) once before.
+Repeat items were guesses that recreated previously discovered tools.
+Unique guesses were incorrect guesses never made. Unique items were unique
+guesses that created a new tool. Guess types were classified within-subject.
+
+```{r guess-types, results="asis"}
+recode_guess_type() %>%
+  select(`Guess type` = GuessTypeLabel,
+         `Unique guess` = UniqueGuess,
+         `Created item` = CreatedItem,
+         `Unique result` = UniqueResult) %>%
+  kable(caption = "(ref:guess-types)")
+```
+
+The guessing strategies for participants in each team strategy are shown in Fig.
+\@ref(fig:guess-props). For our analysis, we focused on the proportions of
+redundant and unique guesses, corresponding to inefficient and efficient
+guessing strategies, respectively.
+
+Participants in all strategies generated a significant number of redundant
+guesses. We found that second generation diachronic participants generated
+a lower proportion of redundant guesses than
+participants in the other strategies, `r exp1$prop_redundant_inheritance`.
+Post hoc comparisons revealed that second generation diachronic participants
+had a lower proportion of redundant guesses than first generation
+diachronic participants, `r exp1$prop_redundant_dg2`, and isolated
+individuals, `r exp1$prop_redundant_i50`, but not synchronic participants,
+`r exp1$prop_redundant_i50`.
+
+Turning to unique guesses, we found no difference between
+second generation diachronic participants and the other strategies,
+`r exp1$prop_unique_inheritance`. Pairwise comparisons suggested
+a potential difference between second generation diachronic
+and isolated participants, `r exp1$prop_unique_i50`, but not between
+second and first generation diachronic participants,
+`r exp1$prop_unique_dg2`, and not between second generation diachronic
+and synchronic participants, `r exp1$prop_unique_s2`.
+
+(ref:guess-props) Guessing strategies by team structure. See Table
+\@ref(tab:guess-types) for a description of the types of guesses. DG1 and DG2 refer
+to first and second generation diachronic participants. I50 refers to isolated
+participants given 50 minutes. S2 refers to two-person synchronic teams.
+
+```{r guess-props, fig.width=5, fig.cap="(ref:guess-props)"}
+prop_guess_types_50min_plot
+```
+
+## Discussion {-}
+
+In Experiment 1, we found that the simplest form of vertical transmission via
+diachronic collaboration, in which one person inherits from a previous
+generation, is comparable in effectiveness to alternative strategies for
+solving the same set of problems in the same amount of labor time. Two
+generations of diachronic problem solvers each working for 25 minutes results
+in similar final performance to an isolated individual given 50 minutes and two
+problem solvers working in parallel for 25 minutes each.
+
+Although in Experiment 1, the three strategies were similar in overall
+performance, we detected the impact of inheriting from a previous generation in
+the guessing efficiency and guessing strategies employed by second generation
+diachronic participants. Inheriting the solutions from a previous generation
+improved the efficiency of future generations of problem solvers by allowing
+them to recreate those same tools with fewer guesses overall. However, this
+improvement in efficiency did not extend to future problem solving, as second
+generation diachronic problem solvers were not any more efficient in solving
+problems that had not been discovered by their ancestor.
+
+We also found evidence that second generation diachronic participants employed
+a different guessing strategy as reflected in the distribution of guesses by
+type. Redundant guesses are unhelpful in that they will never yield new
+discoveries, and yet most participants generate a significant proportion of
+redundant guesses. We found that the tendency to guess redundantly may be
+lessened by diachronic collaboration, as second generation diachronic problem
+solvers generated fewer redundant guesses than their ancestors and participants
+in an isolated strategy. However, similar proportions of redundant guesses were
+generated by participants in the synchronic strategy, suggesting that
+diachronic inheritance is not the only strategy for reducing redundancy in
+guessing.
+
+The results of Experiment 1 also support and extend the findings reported by
+@Derex:2015cbb that synchronic collaboration via horizontal transmission can
+result in an improvement in problem solving performance relative to isolated
+individuals working alone. Here we demonstrate that this advantage holds even
+when labor hours are controlled. By including an isolated condition that
+controls for labor hours, we extend these findings by demonstrating that that
+increased time for individual learning is not always the most effective
+strategy for improving problem solving performance.
+
+The results of Experiment 1 suggest that, rather than engaging in a problem
+solving task as an isolated individual, it might in some cases be more efficient
+to pass the solutions on to a future generation via diachronic collaboration.
+In Experiment 2, we test this idea further by comparing the benefit of
+inheriting from someone else, as in the case of diachronic teams, to the
+benefit of inheriting from oneself, over multiple sessions.
+
+# Experiment 2: Diachronic versus individual inheritance {-}
+
+```{r SelfOther}
+```
+
+In Experiment 2, we compared the performance of four generations of diachronic
+collaboration via vertical transmission---inheriting from someone else---to the
+performance of isolated individuals given four separate sessions (Fig.
+\@ref(fig:team-structures-selfother)). Participants in the isolated condition
+came back to the experiment for four separate sessions, each 25 minutes long.
+Sessions were scheduled at least one day apart. At each session after the
+first, these participants inherited the recipes for the tools they had created
+at the end of the previous session. Thus, in this experiment, both diachronic
+and isolated individuals started each session recreating inherited tools before
+extending these to discover new tools.
+
+(ref:team-structures-selfother) Problem solving strategies compared in Experiment 2.
+
+```{r team-structures-selfother, fig.width=6, fig.cap="(ref:team-structures-selfother)"}
+crotchet::draw_graphviz("team-structures-selfother", package = "totems")
+```
+
+Based on the results of Experiment 1, in which an isolated individuals may
+became fixated on previous and incorrect guesses, we predicted that diachronic
+collaborators, over generations, would be able to exceed the accomplishments of
+individual learners, given the same number of sessions.
+
+## Results {-}
+
+We start by reporting differences in the total number of tools discovered using
+either a diachronic or isolated strategy. To foreshadow our results, we found
+that, against our predictions, isolated individuals given four sessions were
+able to accumulate more tools than diachronic teams given the same total amount
+of time. The remaining analyses examine why an isolated strategy was more
+effective than a diachronic strategy. We show that isolated individuals were
+able to recreate the tools they had discovered previously much more quickly
+than diachronic participants. In investigating why an isolated strategy is more
+effective, we uncover a benefit to diachronic collaboration in remediating the
+costs of fixation suffered by isolated individuals.
+
+### Total tools {-}
+
+The number of innovations discovered in each diachronic generation and isolated
+session are shown in Fig. \@ref(fig:innovations-by-generation-selfother). After
+a single 25 minute session, there was no difference between diachronic and
+isolated participants, `r exp2$gen1_innovations`. This result was expected,
+since after a single session, there was no difference between participants
+randomly assigned to either strategy. For diachronic participants, each
+new generation was able to discover `r exp2$tools_per_diachronic_gen` more
+tools than they inherited, `r exp2$tools_per_diachronic_gen_stats`. However,
+isolated individuals discovered `r exp2$tools_per_isolated_gen` more tools than
+they inherited at each new session, `r exp2$tools_per_isolated_gen_stats`. That
+is, an isolated strategy proved more effective than a diachronic strategy over
+generations, `r exp2$innovations_by_inheritance_slope`. After four generations
+of diachronic collaboration compared to four sessions of isolated labor, an
+isolated strategy was more effective, `r exp2$gen4_innovations`.
+
+(ref:innovations-by-generation-selfother) Innovations discovered by diachronic
+and isolated strategies. Each thin line is a diachronic team (**left**) or an
+isolated individual (**right**). Thick lines with error bars show model
+predictions with ±1 standard error.
+
+```{r innovations-by-generation-selfother, fig.width=5, fig.cap="(ref:innovations-by-generation-selfother)"}
+innovations_by_generation_plot
+```
+
+### Guessing strategy {-}
+
+In order to determine why an isolated strategy was more effective than a
+diachronic strategy, we asked whether isolated individuals employed a more
+efficient guessing strategy than diachronic participants. As in Experiment 1, we
+measured both the proportion of redundant guesses and unique guesses made by
+participants in either strategy, corresponding to an inefficient and efficient
+guessing strategy, respectively. Our results are shown in Fig.
+\@ref(fig:guessing-strategy-by-generation).
+
+Although participants in the isolated strategy discovered more tools after
+four sessions than diachronic teams after four generations, they did not engage
+in a more efficient guessing strategy. Unlike in Experiment 1, diachronic
+participants did not guess a lower proportion of redundant guesses compared to
+isolated individuals, `r exp2$prop_redundant_strategy`. For participants in both
+strategies, the proportion of redundant guesses decreased over generations and
+sessions, `r exp2$prop_redundant_gen`. However, this decrease was not affected
+by strategy, `r exp2$prop_redundant_inter`.
+
+For the proportion of unique guesses, there were no differences between
+participants in either strategy, `r exp2$prop_unique_strategy`, or
+over generations `r exp2$prop_unique_gen`. The change in proportion
+of unique guesses over generations was not affected by strategy,
+`r exp2$prop_unique_inter`.
+
+(ref:guessing-strategy-by-generation) Proportion of guesses by participants in
+diachronic and isolated conditions over generations.
+
+```{r guessing-strategy-by-generation, fig.width=5, fig.cap="(ref:guessing-strategy-by-generation)"}
+prop_guess_types_selfother_plot
+```
+
+If participants in the isolated strategy did not guess more efficiently or
+less redundantly than participants in the diachronic strategy, how then were they
+able to accumulate more tools than participants in the diachronic condition? To
+answer this question, we investigated the time spent recreating the inherited
+tools versus time spent inventing new tools.
+
+### Learning times {-}
+
+Participants who inherited an innovation record from a previous generation or
+from a previous session took on average `r exp2$mean_learning_time` minutes of
+the 25 minute session (`r exp2$prop_learning_time`%) to recreate the inherited
+tools. We refer to this portion of the experiment we refer to as the learning
+period.
+
+We found a large difference between diachronic and isolated individuals in the
+length of the learning period. Isolated individuals returning for multiple
+sessions took significantly less time to recreate the tools they had invented
+at the end of their previous session as compared to diachronic participants who
+were playing the Totems game for the first time, `r exp2$learning_times_inter`
+(Fig. \@ref(fig:diachronic-v-isolated-inheritance)A).
+
+### Guesses for new discoveries {-}
+
+After the learning period ends, participants then had to discover new tools,
+not inherited from an ancestor or a previous session. In this section, we
+compared the effectiveness of isolated and diachronic participants in
+discovering the first new tool, beyond what was inherited.
+
+We found that diachronic participants were able to discover the first new tool
+with fewer guesses than isolated participants (Fig.
+\@ref(fig:diachronic-v-isolated-inheritance)B). On average, participants in both diachronic
+and isolated strategies took `r exp2$first_discovery_mean` guesses to discover
+a new tool not inherited from a previous participant or previous session. Diachronic
+participants discovered a new tool in `r exp2$first_discovery_beta` fewer guesses
+than isolated individuals, `r exp2$first_discovery_stats`. This difference increased
+over generations, `r exp2$first_discovery_by_gen_stats`, indicating that an isolated
+strategy was becoming more fixated on previous incorrect solutions. In contrast,
+the cost of the first new tool among diachronic collaborators was relatively stable
+across generations, even as the number of inherited tools increased.
+
+(ref:diachronic-v-isolated-inheritance) Costs and benefits of diachronic
+inheritance relative to individual inheritance. **A.** Learning times by
+strategy. Learning time refers to the number of minutes it took to recreate the
+inherited items. For diachronic participants (**left**), learning time scaled
+linearly with generations, but for isolated participants returning for multiple
+sessions (**right**), learning times were stable across sessions. **B**. Number
+of guesses required to discover the first new tool each session. For diachronic
+participants (**left**), the first new tool was stable across generations, but
+for isolated participants (**right**) the cost increased with subsequent
+sessions.
+
+```{r diachronic-v-isolated-inheritance, fig.height=6, fig.width=5, fig.cap="(ref:diachronic-v-isolated-inheritance)"}
+gridExtra::grid.arrange(
+  learning_times_plot + ggtitle("A"),
+  first_discovery_by_generation_plot + ggtitle("B"),
+  ncol = 1
+)
+```
+
+## Discussion {-}
+
+In Experiment 2, we found that isolated individuals given four sessions were
+able to outperform diachronic individuals each given only 25 minutes. However,
+an isolated strategy did not result in more efficient problem solving than
+a diachronic strategy. Isolated participants did not guess less redundantly, or
+generate a higher proportion of unique guesses, than diachronic participants.
+Instead, isolated participants, given multiple sessions, were able to more
+quickly recreate the tools they had discovered in their previous session, thus
+giving them more time to discover new tools. In contrast, for diachronic
+participants, recreating the tools inherited from their ancestor took longer
+with each generation, leaving less time for new tool discovery.
+
+We obtained some evidence in support of our hypothesis that a diachronic
+strategy may promote a more efficient form of problem solving. We found that
+isolated individuals were more likely to become fixated on previous, incorrect
+solutions. These fixation effects extended over multiple sessions, causing the
+performance of some isolated individuals to stagnate, especially for the first
+new tool discovered in each session. Diachronic participants, however, were not
+impacted by fixation to previous guesses, and were more easily able to move
+beyond the solutions they inherited to discover new solutions. These results
+reveal a novel benefit to vertical transmission in relieving the pressures that
+may slow individual problem solvers down.
+
+In Experiment 3, we compare the performance of four-person synchronic teams to
+four-generation diachronic teams. We investigated whether adding more
+participants to a synchronic strategy increases problem solving performance to
+the same extend as adding generations to a diachronic team.
+
+# Experiment 3: Scalability of diachronic and synchronic collaboration {-}
+
+```{r TeamSize}
+```
+
+In Experiment 3 we measured the scalability of diachronic and synchronic
+collaboration. Does adding more people to the problem solving team improve the
+performance of each strategy equally? Given that large groups are subject to
+effects such as social loafing that decrease motivation and individual
+performance, we hypothesized that diachronic collaboration would be more
+scalable than synchronic collaboration. To test this, we compared diachronic
+and synchronic collaboration given 50 minutes to the same strategies given 100
+minutes.
+
+## Results and Discussion {-}
+
+As reported in Experiment 1, two-person synchronic teams discovered on average
+more innovations than two-generation diachronic teams, although this difference
+was not statistically significant, `r exp3$DvS_2`. Comparing four-person
+synchronic teams to four-generation diachronic teams revealed a different
+pattern. Adding two people to a synchronic team did not result in a significant
+improvement to team performance, `r exp3$S_2v4`. In contrast, adding two people
+to a diachronic team did result in an improvement to team performance,
+`r exp3$D_2v4`. As a result, there was a reliable interaction between team
+strategy and team size, `r exp3$DvS_2v4`. These results suggest that
+a diachronic strategy is more scalable than a synchronic strategy, meaning that
+adding more people to a diachronic team may result in a bigger improvement in
+final performance compared to adding people to a synchronic team.
+
+(ref:max-innovations-by-teamsize) Innovations by team size. Performance of
+diachronic teams after two or four generations is compared to performance of
+synchronic teams with two or four individuals.
+
+```{r max-innovations-by-teamsize, fig.width=5, fig.cap="(ref:max-innovations-by-teamsize)"}
+max_innovations_by_teamsize_plot
+```
+
+# General Discussion {-}
+
+We sought to better understand the process by which groups of problem solvers
+can arrive at solutions to problems that no individual could on their own.
+Previous research addressing this question has found that groups of problem
+solvers collaborating via horizontal transmission can in some cases raise the
+performance of the group beyond what would be likely to be achieved
+individually [@Derex:2015cbb]. We extended this line of research by studying
+the effectiveness of vertical transmission, where individuals start off
+a problem solving task by inheriting directly from a previous generation.
+
+We found that vertical transmission promotes a unique kind of problem solving
+compared to collaborating via horizontal transmission and solving the same
+problems individually. In comparing vertical and horizontal transmission, we
+found that the effectiveness of vertical transmission is more likely to scale
+with additional problem solvers compared to horizontal transmission. In
+comparing vertical transmission to isolated labor, we found that vertical
+transmission may be helpful in remediating the costs of fixation that slow down
+or hamper progress by isolated learners.
+
+Although the purpose of the experiments reported here was to disentangle
+the effects of vertical and horizontal transmission, future work must
+address the more natural forms of collaboration involving both
+diachronic and synchronic elements.
+Another limitation of these experiments is that both vertical and horizontal
+transmission are believed to involve similar learning mechanisms. This makes
+the distinction between vertical and horizontal cultural transmission different
+from the analogous processes in genetic evolution. In genetic evolution,
+vertical transmission occurs via reproduction, whereas horizontal transmission
+is the transfer of genetic material by any means _other_ than reproduction
+[@Soucy:2015gp]. Thus, the difference between vertical and horizontal
+transmission of genetic material is motivated by an underlying difference in
+mechanism, as the cellular mechanisms involved in reproduction (e.g., meiosis)
+are different from those involved in horizontal transfer (e.g., conjugation).
+In contrast, there is no such difference in mechanism between the vertical and
+horizontal transmission of cultural products. All processes of cultural
+transmission involve social learning, in which one person learns a behavior
+from the observation or interaction with someone else. The cognitive mechanisms
+that allow for social learning are functionally the same regardless of who is
+being copied. For example, the ability to reason about other people's mental
+states, known as "theory of mind", is largely independent of who is being
+reasoned about [@Heyes:2012kt].
+
+Nonetheless, our results suggest that inheriting from a previous generation at
+the beginning of a problem solving task may have different consequences than
+acquiring purportedly the same information by other means. The reason may be
+related to the unique learning environment experienced in vertical
+transmission. In vertical transmission, new generations directly inherit and
+adapt solutions at the start of a problem solving task, making continued
+problem solving dependent on these previous learning experiences. These
+learning experiences may be different than acquiring purportedly the same
+knowledge after initial learning has already taken place. As a result, vertical
+transmission may be able to promote problem solving behaviors that could not be
+achieved individually.
+
+In seeking to explain how and why humans are skilled problem solvers, many have
+pointed to our ability to inherit skilled behaviors learned by others through
+cultural transmission. But whether cultural transmission has an impact on
+future problem solving performance, beyond what was inherited, is an open area
+of research. Here we establish that vertical transmission is a unique form
+a problem solving worthy of further investigation.
+
+# References
