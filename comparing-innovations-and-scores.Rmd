@@ -1,0 +1,43 @@
+---
+title: Comparing number of innovations and game scores
+output:
+  pdf_document: {}
+---
+```{r config, include=FALSE}
+library(knitr)
+opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE)
+# Read all knitr chunks in external .R file
+read_chunk("team-structures.R")
+```
+```{r Setup}
+```
+```{r 50min-num-innovations}
+data("Sampled")
+
+Sampled50min <- Sampled %>%
+  filter_50min() %>%
+  recode_strategy() %>%
+  label_inheritance() %>%
+  mutate(NumInnovations = InventorySize - 6)
+
+labels <- recode_session_type_50min() %>%
+  mutate(TeamTime = c(12.5, 43.75, 43.75, 43.75),
+         NumInnovations = c(4.5, 8.7, 6.8, 10)) %>%
+  recode_strategy()
+
+innovation_rate_50min_plot <- ggplot(Sampled50min) +
+  aes(TeamTime, NumInnovations) +
+  geom_line(aes(color = StrategyLabel,
+                group = interaction(StrategyLabel, Generation),
+                size = Inheritance),
+            stat = "summary", fun.y = "mean") +
+  geom_text(aes(label = SessionTypeSimple, color = StrategyLabel), data = labels, fontface = "bold", size = 2.5) +
+  t_$scale_x_team_time +
+  t_$scale_color_strategy +
+  scale_size_manual(values = c(1.8, 1.0)) +
+  t_$scale_y_num_innovations +
+  guides(linetype = "none", size = "none") +
+  t_$base_theme +
+  theme(legend.position = "none")
+innovation_rate_50min_plot
+```
