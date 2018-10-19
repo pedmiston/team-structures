@@ -1,0 +1,9 @@
+digraph {
+  rankdir=LR;
+  node[label="" shape=circle];
+  b2, a1
+  a1 -> a2[minlen=4 label="diachronic"];
+  { rank=same; a1, b2 }
+  a1 -> b2[minlen=6];
+  a2, b2[style=invis width=0]
+}

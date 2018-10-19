@@ -1,4 +1,4 @@
-# ---- Setup ----
+# ---- team-structures ----
 library(magrittr)
 library(broom)
 library(lme4)
@@ -9,7 +9,7 @@ library(totems)
 library(tidyverse) # Load tidyverse after totems to prevent dplyr::filter from being masked
 t_ <- load_totems_theme()
 
-# ---- Intro ----
+# * Intro ----
 # Makes "types of time" plot.
 # Types of time plot shows the relationship
 # between labor time, calendar time, and learning time.
@@ -85,7 +85,7 @@ gg_person <- ggplot(time) +
   theme(legend.position = "none",
         panel.grid.major.x = element_blank())
 
-# ---- Methods ----
+# * Methods ----
 
 data("Teams")
 data("Sessions")
@@ -131,12 +131,12 @@ ConditionCounts <- Teams %>%
   rename(`Duration (min)` = SessionDuration, `Session size` = PlayersPerSession,
          `Teams` = NumTeams, `Participants` = NumPlayers)
 
-# ---- 50min ----
+# * 50min ----
 
 # List to hold descriptives for in-text citation
 exp1 <- list()
 
-# * Methods ----
+# ** Methods ----
 data("Sessions")
 
 Exp2Participants <- Sessions %>%
@@ -155,7 +155,7 @@ Exp1N <- left_join(Exp2Participants, Exp1Teams)
 
 exp1$n_participants <- sum(Exp1N$`$N_{participants}$`)
 
-# * Number of innovations ----
+# ** Number of innovations ----
 data("Guesses")
 
 Innovations <- Guesses %>%
@@ -228,7 +228,7 @@ num_innovations_50min_plot <- ggplot(Innovations) +
     panel.grid.minor.y = element_blank()
   )
 
-# * Rate of innovation ----
+# ** Rate of innovation ----
 data("Sampled")
 
 Sampled50min <- Sampled %>%
@@ -257,7 +257,7 @@ innovation_rate_50min_plot <- ggplot(Sampled50min) +
   t_$base_theme +
   theme(legend.position = "none")
 
-# * Guesses per item ----
+# ** Guesses per item ----
 data("Guesses")
 data("AdjacentItems")
 data("Teams")
@@ -365,7 +365,7 @@ guesses_per_item_plot <- ggplot(CostPerItem50min) +
     panel.grid.major.x = element_blank()
   )
 
-# * Guesses per item: Playing ----
+# ** Guesses per item: Playing ----
 CostPerItem50minPlaying <- GuessesPerItem50min %>%
   filter(Strategy != "Diachronic" | (Generation == 2 & Stage == "playing")) %>%
   # Summarize the cost of each item for each session type: DG1, DG2, I50, S2.
@@ -449,7 +449,7 @@ guesses_per_new_item_plot <- ggplot(guesses_per_new_item_treatment_mod) +
   )
 
 
-# * Guess types ----
+# ** Guess types ----
 GuessTypes <- Guesses %>%
   filter_50min() %>%
   recode_guess_type("UniqueSessionGuess", "UniqueSessionResult") %>%
@@ -530,7 +530,7 @@ prop_guess_types_50min_plot <- ggplot(GuessTypes50minSummary) +
   t_$base_theme +
   theme(panel.grid.major.x = element_blank())
 
-# * Guessing rates ----
+# ** Guessing rates ----
 data("Sampled")
 sampled_interval <- 1 # Sampled data was sampled at 1 minute intervals
 
@@ -608,11 +608,11 @@ unique_per_minute <- guessing_rate_plot +
 redundant_per_minute <- guessing_rate_plot +
   aes(y = RedundancyRate)
 
-# ---- SelfOther ----
+# * SelfOther ----
 
 exp2 <- list()
 
-# * Methods ----
+# ** Methods ----
 data("Sessions")
 
 Exp3Participants <- Sessions %>%
@@ -622,7 +622,7 @@ Exp3Participants <- Sessions %>%
   count(Strategy) %>%
   rename(N = n)
 
-# * Innovations by generation ----
+# ** Innovations by generation ----
 data("Guesses")
 data("Sessions")
 
@@ -696,7 +696,7 @@ innovations_by_generation_plot <- ggplot(Innovations) +
     panel.grid.minor.y = element_blank()
   )
 
-# * Guess types ----
+# ** Guess types ----
 GuessTypesSelfOther <- Guesses %>%
   filter_selfother() %>%
   recode_guess_type("UniqueSessionGuess", "UniqueSessionResult") %>%
@@ -778,7 +778,7 @@ prop_guess_types_selfother_plot <- ggplot(GuessTypesSelfOtherSummary) +
   t_$base_theme +
   theme(panel.grid.major.x = element_blank())
 
-# * Learning times ----
+# ** Learning times ----
 StageTimesSelfOther <- Guesses %>%
   filter_selfother() %>%
   filter(Generation > 1) %>%
@@ -819,9 +819,9 @@ learning_times_plot <- ggplot(StageTimesSelfOther) +
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank())
 
-# * Guesses per item ----
+# ** Guesses per item ----
 
-# * Fixation ----
+# ** Fixation ----
 data("Guesses")
 data("Sessions")
 data("AdjacentItems")
@@ -913,13 +913,13 @@ first_discovery_by_generation_plot <- ggplot(FirstDiscovery) +
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank())
 
-# ---- TeamSize ----
+# * TeamSize ----
 
 exp3 <- list()
 
-# * Methods ----
+# ** Methods ----
 
-# * Number of innovations ----
+# ** Number of innovations ----
 data("Guesses")
 
 drop_isolated <- . %>% filter(Strategy != "Isolated")
@@ -1026,27 +1026,27 @@ max_innovations_by_teamsize_plot <- ggplot(Innovations) +
   xlab("")
 
 
-# * BotsPlayers ----
-data("BotsPlayers")
-
-sim_vars <- c("strategy", "n_guesses", "n_players", "seed", "player_memory", "team_memory")
-filter_final_round <- . %>%
-  group_by_(.dots = sim_vars) %>%
-  filter(round == max(round)) %>%
-  ungroup()
-
-min_players <- min(BotsPlayers$n_players)
-max_players <- max(BotsPlayers$n_players)
-min_guesses <- min(BotsPlayers$n_guesses)
-max_guesses <- max(BotsPlayers$n_guesses)
-
-BotsPlayersFinal <- BotsPlayers %>%
-  filter((n_players == min_players & n_guesses == min_guesses) | (n_players == max_players & n_guesses == max_guesses)) %>%
-  filter_final_round() %>%
-  mutate(num_innovations = inventory_size - 6)
-
-bots_team_size_plot <- ggplot(BotsPlayersFinal) +
-  aes(strategy, num_innovations) +
-  geom_bar(aes(fill = strategy), stat = "summary", fun.y = "mean", alpha = 0.6) +
-  geom_point(aes(color = strategy), shape = 1, position = position_jitter(width = 0.2)) +
-  facet_wrap("n_players")
+# ** BotsPlayers ----
+# data("BotsPlayers")
+# 
+# sim_vars <- c("strategy", "n_guesses", "n_players", "seed", "player_memory", "team_memory")
+# filter_final_round <- . %>%
+#   group_by_(.dots = sim_vars) %>%
+#   filter(round == max(round)) %>%
+#   ungroup()
+# 
+# min_players <- min(BotsPlayers$n_players)
+# max_players <- max(BotsPlayers$n_players)
+# min_guesses <- min(BotsPlayers$n_guesses)
+# max_guesses <- max(BotsPlayers$n_guesses)
+# 
+# BotsPlayersFinal <- BotsPlayers %>%
+#   filter((n_players == min_players & n_guesses == min_guesses) | (n_players == max_players & n_guesses == max_guesses)) %>%
+#   filter_final_round() %>%
+#   mutate(num_innovations = inventory_size - 6)
+# 
+# bots_team_size_plot <- ggplot(BotsPlayersFinal) +
+#   aes(strategy, num_innovations) +
+#   geom_bar(aes(fill = strategy), stat = "summary", fun.y = "mean", alpha = 0.6) +
+#   geom_point(aes(color = strategy), shape = 1, position = position_jitter(width = 0.2)) +
+#   facet_wrap("n_players")

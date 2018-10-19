@@ -1,0 +1,215 @@
+---
+title: |
+  The effects of cultural inheritance  
+  on problem solving ability
+author:
+  \textbf{Pierce Edmiston}$^1$, Maxime Derex$^2$, Gary Lupyan$^1$
+bibliography: references.bib
+csl: apa.csl
+output:
+  beamer_presentation:
+    theme: metropolis
+    keep_tex: yes
+    template: template/slides.tmpl
+---
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(crotchet)
+opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE)
+# read_chunk("team-structures.R")
+# read_chunk("iterated-problem-solving.R")
+```
+
+# Cumulative cultural evolution
+
+```{r computer, fig.cap="Two computers. The Difference Engine (left) and the Apple Watch S3 (right)."}
+gridExtra::grid.arrange(
+  crotchet::read_image("img/difference-engine.jpg", width = 0.9),
+  crotchet::read_image("img/apple-watch.jpg", width = 0.9),
+  nrow = 1
+)
+```
+
+<!--
+Here are two computers.
+
+The one on the left is a portion of the Difference Engine, designed by Charles
+Babbage in the 1820s, but famously never actually built, or at least not in his
+lifetime. The difference engine was a machine designed to compute arbitrary
+functions, so it was a very early computer.
+
+On the right, we have the inside of an Apple Watch S3 --- A solid state
+computer, with no moving parts. Today, Apple, a company with over 120,000
+employees, worth over one trillion dollars, makes and sells about 4 million of
+these watches every few months.
+
+I think we can all agree that the Apple Watch is a much better computer
+Babbage's 15 ton machine, and this is the kind of cumulative cultural evolution
+I think we can all agree on. The Apple Watch was not
+
+The Apple Watch solves a much more complex set of
+problems. It has a touchscreen, sensors to detect your heartbeat, how many
+steps you've taken, where you've been. There are engineering constraints on
+making it look wearable and sylish, and manufacturing constraints on how to
+produce millions upon millions of these devices.
+
+Babbage's machine and the Apple Watch are
+separated by 145 years or about 8 generations. 
+
+
+-->
+
+# The psychology of cumulative cultural evolution
+
+Groups solve increasingly complex problems over generations  
+that individuals struggle to solve on their own.
+
+
+# The two dimensions of cultural evolution
+
+```{r dimensions-of-cultural-evolution, engine="dot"}
+DiagrammeR::grViz('digraph {
+  rankdir=LR;
+  node[label="" shape=circle];
+  a1 -> a2[minlen=4];
+  b1, b2, b3, b4;
+  b2, b3[style=invis];
+  b1 -> b4[constraint=false];
+}')
+```
+
+
+
+
+Where I think we may disagree is in what I will call the psychology
+of cumulative cultural evolution.
+-->
+
+# The psychology of cumulative cultural evolution
+
+> Humans are adapted to improve one another's inventions.
+
+- Human tools have improved over generations faster than tools used by other animal species.
+
+
+
+```{r iterated-problem-solving, engine="dot"}
+digraph {
+    rankdir = LR
+    node[shape=circle style=filled label=""]
+    bgcolor="transparent"
+
+    d1 -> d2 -> d3 -> d4 -> d5
+    d5[style=invis]
+
+    d1[fillcolor="#7483A7"];
+    d2[fillcolor="#8DA0CB"];
+    d3[fillcolor="#A1B1D4"];
+    d4[fillcolor="#B6C2DD"];
+}
+```
+
+# The adaptiveness of cultural inheritance[^br]
+
+Cultural inheritance is adaptive because **even smart people die.**  
+Cultural inheritance enables problem solving to extend far longer than any lifetime.
+
+[^br]: [@Boyd:1985cu; @Richerson:2005not]
+
+```{r adaptiveness, engine="dot"}
+digraph {
+    rankdir = LR
+    node[shape=circle style=filled label=""]
+    bgcolor="transparent"
+
+    d1, i2  // set row order last to first
+
+    d1 -> d2 -> d3 -> d4 -> d5
+    i1 -> i2
+    d5, i2[style=invis]
+
+    i1[fillcolor="#66C2A5"]
+
+    d1[fillcolor="#7483A7"];
+    d2[fillcolor="#8DA0CB"];
+    d3[fillcolor="#A1B1D4"];
+    d4[fillcolor="#B6C2DD"];
+}
+```
+
+# Increasing acquisition costs[^var]
+
+```{r mesoudi-2011-fig2a}
+crotchet::draw_image("img/mesoudi-2011-fig2a.png")
+```
+
+[^var]: [Fig. 2A, @Mesoudi:2011fn]
+
+# The Totem Game [@Derex:2015cbb]
+
+```{r gameplay, out.height="90%"}
+draw_image("gameplay", package = "totems")
+```
+
+<!--
+An example of this is the Totem game. In the Totem game, participants attempt
+to build a sacred totem to appease the gods. To build a totem pole, first they
+have to combine these resources to make tools, and use
+those tools to create other tools, and so on and so on, until they can chop
+down a tree, and carve and paint a totem pole.
+
+In this game, most of the combinations participants try do not yield new tools,
+and so the test is how effectively participants can search the space of possible
+combinations without making the same incorrect guesses over and over again.
+-->
+
+# Recipes
+
+```{r recipes, out.height="80%"}
+crotchet::draw_image("recipes.gv", package = "totems")
+```
+
+<!--
+Here are some of the successful combinations, which I will refer to
+as "recipes". You can see a few different kinds of recipes here,
+some where the same item is combined with itself, others where
+you can refine an item all by itself, but most of the recipes
+involve the combination of 2 to 3 different items.
+
+What's important about these recipes is that they are what
+is inherited by future generations. First generation participants
+had to discover all these recipes on their own, but other
+participants started off with access to the recipes discovered
+by the previous generation. So they could click on an item,
+and see its recipe, so that they could recreate it on their own.
+-->
+
+# Solution landscape
+
+```{r landscape, out.height="80%"}
+crotchet::draw_image("landscape-sample.gv", package = "totems")
+```
+
+<!--
+What makes this game interesting is that as tools are accumulated, the space
+of possible combinations increases exponentially, even though the space
+of correct combinations doesn't.
+
+Here I'm showing the first 6 generations of tools, leading to the first axe,
+which is required to make the simplest kind of totem pole. The landscape goes
+on beyond this point, but in reality, in just 25 minutes, participants have
+a hard time getting even this far.
+
+Presumably, with more items, the game gets harder and harder, so we can ask
+how individuals who inherit a bunch of items from an ancestor are able to
+exceed them. Are they able to overcome the acquisition cost of recreating
+the previous tools?
+-->
+
+# References {.allowframebreaks}
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.25in}
+\noindent
+\footnotesize
