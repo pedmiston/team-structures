@@ -1,31 +1,7 @@
 ---
-title: |
-  The effects of cultural inheritance  
-  on problem solving ability
-author:
-  \textbf{Pierce Edmiston}$^1$, Maxime Derex$^2$, Gary Lupyan$^1$
-bibliography: references.bib
-csl: apa.csl
-output:
-  beamer_presentation:
-    theme: metropolis
-    keep_tex: yes
-    template: template/slides.tmpl
+title: "scrap"
+output: html_document
 ---
-```{r setup, include=FALSE}
-library(knitr)
-library(tidyverse)
-library(crotchet)
-opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE)
-read_chunk("team-structures.R")
-```
-```{r team-structures, include=FALSE}
-```
-```{r config, include=FALSE, cache=FALSE}
-t_$base_theme$text$size <- 20
-t_$annotation_size <- 5
-theme_set(t_$base_theme)
-```
 
 # Cumulative cultural evolution
 
@@ -79,6 +55,56 @@ So let me pose a very tongue-in-cheek question.
 - 8 generations of innovations. (inheritance)
 - 120,000 employees. (group size)
 
+# The psychology of cumulative cultural evolution
+
+Groups solve increasingly complex problems over generations  
+that individuals struggle to solve on their own.
+
+
+# The two dimensions of cultural evolution
+
+```{r dimensions-of-cultural-evolution, engine="dot"}
+DiagrammeR::grViz('digraph {
+  rankdir=LR;
+  node[label="" shape=circle];
+  a1 -> a2[minlen=4];
+  b1, b2, b3, b4;
+  b2, b3[style=invis];
+  b1 -> b4[constraint=false];
+}')
+```
+
+
+
+
+Where I think we may disagree is in what I will call the psychology
+of cumulative cultural evolution.
+-->
+
+# The psychology of cumulative cultural evolution
+
+> Humans are adapted to improve one another's inventions.
+
+- Human tools have improved over generations faster than tools used by other animal species.
+
+
+
+```{r iterated-problem-solving, engine="dot"}
+digraph {
+    rankdir = LR
+    node[shape=circle style=filled label=""]
+    bgcolor="transparent"
+
+    d1 -> d2 -> d3 -> d4 -> d5
+    d5[style=invis]
+
+    d1[fillcolor="#7483A7"];
+    d2[fillcolor="#8DA0CB"];
+    d3[fillcolor="#A1B1D4"];
+    d4[fillcolor="#B6C2DD"];
+}
+```
+
 # The adaptiveness of cultural inheritance[^br]
 
 Cultural inheritance is adaptive because **even smart people die.**  
@@ -107,18 +133,6 @@ digraph {
 }
 ```
 
-<!--
-Why is cultural inheritance adaptive? Why is it more beneficial to be able to
-copy someone else than it is to be able to solve problems as individuals?
-
-One of the basic arguments given for why cultural inheritance is adaptive is
-that even smart people die. If you cannot copy, you can only accomplish so much
-on your own in a single lifetime, no matter how smart you are. If you can copy,
-you can instead spend your life improving what other people invented. What this
-means is that problem solving can extend far longer than any single lifetime.
-Eventually, cultures can solve problems that individuals cannot.
--->
-
 # Increasing acquisition costs[^var]
 
 ```{r mesoudi-2011-fig2a}
@@ -127,35 +141,23 @@ crotchet::draw_image("img/mesoudi-2011-fig2a.png")
 
 [^var]: [Fig. 2A, @Mesoudi:2011fn]
 
-# Team structures
-
-```{r team-structures-1, out.height="80%", fig.align="center"}
-crotchet::draw_graphviz("team-structures", package = "totems")
-```
-
-# Types of time
-
-```{r types-of-time, fig.width=5, fig.height=2, fig.cap="Team structures controlling for labor time."}
-gridExtra::grid.arrange(
-  crotchet::read_graphviz("team-structures", package = "totems"),
-  gg_time,
-  gg_person,
-  nrow = 1,
-  widths = c(0.25, 0.375, 0.375)
-)
-```
-
-# All team structure conditions
-
-```{r team-structures-all, out.height="90%", fig.align="center"}
-crotchet::draw_graphviz("team-structures-all", package = "totems")
-```
-
 # The Totem Game [@Derex:2015cbb]
 
 ```{r gameplay, out.height="90%"}
 draw_image("gameplay", package = "totems")
 ```
+
+<!--
+An example of this is the Totem game. In the Totem game, participants attempt to
+build a sacred totem to appease the gods. To build a totem pole, first they have
+to combine these resources to make tools, and use those tools to create other
+tools, and so on and so on, until they can chop down a tree, and carve and paint
+a totem pole.
+
+In this game, most of the combinations participants try do not yield new tools,
+and so the test is how effectively participants can search the space of possible
+combinations without making the same incorrect guesses over and over again.
+-->
 
 # Recipes
 
@@ -163,64 +165,38 @@ draw_image("gameplay", package = "totems")
 crotchet::draw_image("recipes.gv", package = "totems")
 ```
 
+<!--
+Here are some of the successful combinations, which I will refer to as
+"recipes". You can see a few different kinds of recipes here, some where the
+same item is combined with itself, others where you can refine an item all by
+itself, but most of the recipes involve the combination of 2 to 3 different
+items.
+
+What's important about these recipes is that they are what is inherited by
+future generations. First generation participants had to discover all these
+recipes on their own, but other participants started off with access to the
+recipes discovered by the previous generation. So they could click on an item,
+and see its recipe, so that they could recreate it on their own.
+-->
+
 # Solution landscape
 
 ```{r landscape, out.height="80%"}
 crotchet::draw_image("landscape-sample.gv", package = "totems")
 ```
 
-# Experiment 1: Simple diachronic inheritance
+<!--
+What makes this game interesting is that as tools are accumulated, the space
+of possible combinations increases exponentially, even though the space
+of correct combinations doesn't.
 
-```{r innovations-50min}
-grid.arrange(
-  innovation_rate_50min_plot + ggtitle("A"),
-  num_innovations_50min_plot + ggtitle("B"),
-  nrow = 1,
-  widths = c(0.55, 0.45)
-)
-```
+Here I'm showing the first 6 generations of tools, leading to the first axe,
+which is required to make the simplest kind of totem pole. The landscape goes
+on beyond this point, but in reality, in just 25 minutes, participants have
+a hard time getting even this far.
 
-# Experiment 2: Diachronic versus individual inheritance
-
-```{r team-structures-selfother}
-crotchet::draw_graphviz("team-structures-selfother", package = "totems")
-```
-
-# Experiment 2
-
-```{r innovations-by-generation-selfother}
-innovations_by_generation_plot
-```
-
-# Experiment 2
-
-```{r diachronic-v-isolated-inheritance}
-gridExtra::grid.arrange(
-  learning_times_plot + ggtitle("A"),
-  first_discovery_by_generation_plot + ggtitle("B"),
-  ncol = 1
-)
-```
-
-# Experiment 3
-
-```{r scalability}
-max_innovations_by_teamsize_plot
-```
-
-# Experiment 3
-
-```{r scalability-simulations}
-gridExtra::grid.arrange(
-  max_innovations_by_teamsize_plot,
-  bots_team_size_plot,
-  nrow = 1
-)
-```
-
-# References {.allowframebreaks}
-
-\setlength{\parindent}{-0.2in}
-\setlength{\leftskip}{0.25in}
-\noindent
-\footnotesize
+Presumably, with more items, the game gets harder and harder, so we can ask
+how individuals who inherit a bunch of items from an ancestor are able to
+exceed them. Are they able to overcome the acquisition cost of recreating
+the previous tools?
+-->

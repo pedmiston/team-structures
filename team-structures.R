@@ -8,6 +8,9 @@ library(crotchet)
 library(totems)
 library(tidyverse) # Load tidyverse after totems to prevent dplyr::filter from being masked
 t_ <- load_totems_theme()
+# t_$annotation_size <- 2.5  # for manuscript
+t_$annotation_size <- 5      # for slides
+theme_set(t_$base_theme)
 
 # * Intro ----
 # Makes "types of time" plot.
@@ -84,6 +87,7 @@ gg_person <- ggplot(time) +
   t_$base_theme +
   theme(legend.position = "none",
         panel.grid.major.x = element_blank())
+
 
 # * Methods ----
 
@@ -221,7 +225,6 @@ num_innovations_50min_plot <- ggplot(Innovations) +
   xlab("") +
   t_$scale_y_num_innovations +
   scale_shape_manual(values = c(16, 1)) +
-  t_$base_theme +
   theme(
     legend.position = "none",
     panel.grid.major.x = element_blank(),
@@ -248,13 +251,13 @@ innovation_rate_50min_plot <- ggplot(Sampled50min) +
                 group = interaction(StrategyLabel, Generation),
                 size = Inheritance),
             stat = "summary", fun.y = "mean") +
-  geom_text(aes(label = SessionTypeSimple, color = StrategyLabel), data = labels, fontface = "bold", size = 2.5) +
+  geom_text(aes(label = SessionTypeSimple, color = StrategyLabel),
+            data = labels, fontface = "bold", size = t_$annotation_size) +
   t_$scale_x_team_time +
   t_$scale_color_strategy +
   scale_size_manual(values = c(1.8, 1.0)) +
   t_$scale_y_num_innovations +
   guides(linetype = "none", size = "none") +
-  t_$base_theme +
   theme(legend.position = "none")
 
 # ** Guesses per item ----
@@ -359,7 +362,6 @@ guesses_per_item_plot <- ggplot(CostPerItem50min) +
   scale_y_continuous("Guesses per innovation", breaks = seq(0, 300, by = 50)) +
   coord_cartesian(xlim = c(0.65, 2.35), ylim = c(0, 200), expand = FALSE) +
   t_$scale_color_strategy +
-  t_$base_theme +
   theme(
     legend.position = "none",
     panel.grid.major.x = element_blank()
@@ -442,7 +444,6 @@ guesses_per_new_item_plot <- ggplot(guesses_per_new_item_treatment_mod) +
   scale_y_continuous("Guesses per innovation", breaks = seq(0, 300, by = 50)) +
   coord_cartesian(xlim = c(0.65, 2.375), ylim = c(0, 200), expand = FALSE) +
   t_$scale_color_strategy +
-  t_$base_theme +
   theme(
     legend.position = "none",
     panel.grid.major.x = element_blank()
@@ -527,7 +528,6 @@ prop_guess_types_50min_plot <- ggplot(GuessTypes50minSummary) +
   scale_y_continuous("Proportion of guesses", labels = scales::percent) +
   scale_fill_manual("Guess types",
                     values = t_$color_picker(c("green", "blue", "orange", "pink"))) +
-  t_$base_theme +
   theme(panel.grid.major.x = element_blank())
 
 # ** Guessing rates ----
@@ -587,8 +587,7 @@ guessing_rate_plot <- ggplot(GuessingRates) +
              stat = "summary", fun.y = "mean") +
   xlab("Session time (minutes)") +
   scale_shape_manual(values = c(1, 16), guide = "none") +
-  t_$scale_color_strategy +
-  t_$base_theme
+  t_$scale_color_strategy
 
 new_items_per_minute <- guessing_rate_plot +
   aes(y = NewItemRate) +
@@ -689,7 +688,6 @@ innovations_by_generation_plot <- ggplot(Innovations) +
   facet_wrap("Strategy") +
   scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
   scale_y_continuous("Number of innovations", breaks = seq(0, 40, by = 5)) +
-  t_$base_theme +
   theme(
     legend.position = "none",
     panel.grid.minor.x = element_blank(),
@@ -775,7 +773,6 @@ prop_guess_types_selfother_plot <- ggplot(GuessTypesSelfOtherSummary) +
   scale_y_continuous("Proportion of guesses", labels = scales::percent) +
   scale_fill_manual("Guess types",
                     values = t_$color_picker(c("green", "blue", "orange", "pink"))) +
-  t_$base_theme +
   theme(panel.grid.major.x = element_blank())
 
 # ** Learning times ----
@@ -812,7 +809,6 @@ learning_times_plot <- ggplot(StageTimesSelfOther) +
                 data = learning_times_preds, width = 0.2) +
   facet_wrap("Strategy") +
   scale_y_continuous("Learning time (min)") +
-  t_$base_theme +
   scale_fill_manual(values = t_$color_picker(c("blue", "green"))) +
   scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
   theme(legend.position = "none",
@@ -872,7 +868,6 @@ first_discovery_plot <- ggplot(FirstDiscovery) +
   scale_y_continuous("Number of guesses") +
   t_$scale_color_strategy +
   t_$scale_fill_strategy +
-  t_$base_theme +
   theme(legend.position = "none",
         panel.grid.major.x = element_blank())
 
@@ -906,7 +901,6 @@ first_discovery_by_generation_plot <- ggplot(FirstDiscovery) +
   facet_wrap("Strategy") +
   scale_x_continuous(breaks = 2:4) +
   scale_y_continuous("Number of guesses") +
-  t_$base_theme +
   scale_fill_manual(values = t_$color_picker(c("blue", "green"))) +
   scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
   theme(legend.position = "none",
@@ -1015,7 +1009,6 @@ max_innovations_by_teamsize_plot <- ggplot(Innovations) +
   facet_wrap("NumPlayersLabel") +
   scale_fill_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
   scale_color_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
-  t_$base_theme +
   scale_y_continuous("Number of innovations", breaks = seq(0, 30, by = 2), expand = c(0, 0), limits = c(0, 27)) +
   # coord_cartesian(ylim)
   guides(color = "none", fill = "none") +
@@ -1027,26 +1020,26 @@ max_innovations_by_teamsize_plot <- ggplot(Innovations) +
 
 
 # ** BotsPlayers ----
-# data("BotsPlayers")
-# 
-# sim_vars <- c("strategy", "n_guesses", "n_players", "seed", "player_memory", "team_memory")
-# filter_final_round <- . %>%
-#   group_by_(.dots = sim_vars) %>%
-#   filter(round == max(round)) %>%
-#   ungroup()
-# 
-# min_players <- min(BotsPlayers$n_players)
-# max_players <- max(BotsPlayers$n_players)
-# min_guesses <- min(BotsPlayers$n_guesses)
-# max_guesses <- max(BotsPlayers$n_guesses)
-# 
-# BotsPlayersFinal <- BotsPlayers %>%
-#   filter((n_players == min_players & n_guesses == min_guesses) | (n_players == max_players & n_guesses == max_guesses)) %>%
-#   filter_final_round() %>%
-#   mutate(num_innovations = inventory_size - 6)
-# 
-# bots_team_size_plot <- ggplot(BotsPlayersFinal) +
-#   aes(strategy, num_innovations) +
-#   geom_bar(aes(fill = strategy), stat = "summary", fun.y = "mean", alpha = 0.6) +
-#   geom_point(aes(color = strategy), shape = 1, position = position_jitter(width = 0.2)) +
-#   facet_wrap("n_players")
+data("BotsPlayers")
+
+sim_vars <- c("strategy", "n_guesses", "n_players", "seed", "player_memory", "team_memory")
+filter_final_round <- . %>%
+  group_by_(.dots = sim_vars) %>%
+  filter(round == max(round)) %>%
+  ungroup()
+
+min_players <- min(BotsPlayers$n_players)
+max_players <- max(BotsPlayers$n_players)
+min_guesses <- min(BotsPlayers$n_guesses)
+max_guesses <- max(BotsPlayers$n_guesses)
+
+BotsPlayersFinal <- BotsPlayers %>%
+  filter((n_players == min_players & n_guesses == min_guesses) | (n_players == max_players & n_guesses == max_guesses)) %>%
+  filter_final_round() %>%
+  mutate(num_innovations = inventory_size - 6)
+
+bots_team_size_plot <- ggplot(BotsPlayersFinal) +
+  aes(strategy, num_innovations) +
+  geom_bar(aes(fill = strategy), stat = "summary", fun.y = "mean", alpha = 0.6) +
+  geom_point(aes(color = strategy), shape = 1, position = position_jitter(width = 0.2)) +
+  facet_wrap("n_players")
