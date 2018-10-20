@@ -43,21 +43,21 @@ gridExtra::grid.arrange(
 <!--
 Here are two computers.
 
-The one on the left is a portion of the Difference Engine, designed by Charles
-Babbage in the 1820s, but famously never actually built, or at least not in his
-lifetime. The difference engine was a machine designed to compute arbitrary
-functions, so it was a very early computer.
+The one on the left is a portion of the Difference Engine, a one-of-a-kind
+machine designed by Charles Babbage in the 1820s, but famously never actually
+completed, or at least not in his lifetime. The difference engine was a machine
+designed to compute arbitrary functions, so it was a very early computer.
 
 On the right, we have the inside of an Apple Watch S3 --- A solid state
-computer, with no moving parts. Today, Apple, a company with over 120,000
+computer, with no moving parts. Today, a company with over 120,000
 employees, worth over one trillion dollars, makes and sells about 4 million of
 these watches every quarter.
 
-By just about every measure I can think of, the Apple Watch is a much better computer
-Babbage's 15 ton machine, and this is the kind of cumulative cultural evolution
-I think we can all agree on.
+By just about every measure I can think of, the Apple Watch is a much better
+computer than Babbage's 15 ton machine, and this is the kind of cumulative
+cultural evolution I think we can all agree on.
 
-Populations solve increasingly complex problems over generations
+Human populations solve increasingly complex problems over generations
 that individuals struggle to solve on their own.
 
 The Apple Watch solves a much more complex set of problems than the Difference
@@ -66,68 +66,90 @@ you've taken, where you've been. There are engineering constraints on making it
 wearable and sylish, and manufacturing constraints on how to produce
 enough of these devices fast enough to keep up with demand.
 
-All in all, it seems impossible that any single person could have designed the
-Apple Watch. It also seems impossible for Babbage to have designed the Apple
-Watch in the 1820s even if he had thousands of people working for him and an
-infinite amount of cash.
-
-So let me pose a very tongue-in-cheek question.
+Given this complexity, it's impossible to imagine any single person ever having
+designed the Apple Watch, and this is an example of how cultures are better at
+problem solving than individuals.
 -->
 
-# Why didn't Charles Babbage design the Apple Watch?
+# The psychology of cumulative cultural evolution
 
-- 8 generations of innovations. (inheritance)
-- 120,000 employees. (group size)
+Why are cultures better at solving problems than individuals?
 
-# The adaptiveness of cultural inheritance[^br]
+Inheritance
+:   Knowledge is passed from one generation to the next.
 
-Cultural inheritance is adaptive because **even smart people die.**  
-Cultural inheritance enables problem solving to extend far longer than any lifetime.
+Group size
+:   Individuals can coordinate labor in large groups.
 
-[^br]: [@Boyd:1985cu; @Richerson:2005not]
-
-```{r adaptiveness, engine="dot"}
-digraph {
-    rankdir = LR
-    node[shape=circle style=filled label=""]
-    bgcolor="transparent"
-
-    d1, i2  // set row order last to first
-
-    d1 -> d2 -> d3 -> d4 -> d5
-    i1 -> i2
-    d5, i2[style=invis]
-
-    i1[fillcolor="#66C2A5"]
-
-    d1[fillcolor="#7483A7"];
-    d2[fillcolor="#8DA0CB"];
-    d3[fillcolor="#A1B1D4"];
-    d4[fillcolor="#B6C2DD"];
-}
-```
+**Is it aggregation or interaction?**
 
 <!--
-Why is cultural inheritance adaptive? Why is it more beneficial to be able to
-copy someone else than it is to be able to solve problems as individuals?
+Why are populations able to solve problems that individuals are not?
 
-One of the basic arguments given for why cultural inheritance is adaptive is
-that even smart people die. If you cannot copy, you can only accomplish so much
-on your own in a single lifetime, no matter how smart you are. If you can copy,
-you can instead spend your life improving what other people invented. What this
-means is that problem solving can extend far longer than any single lifetime.
-Eventually, cultures can solve problems that individuals cannot.
+There are really two reasons I want to talk about today. The first is the idea
+of inheritance: that cultures are able to pass knowledge from one generation to
+the next, which means that problem solving can extend far longer than any
+individual lifetime.
+
+The second reason is related to group size. This is the idea that individuals
+can coordinate their labor in groups to accomplish something that they couldn't
+by themselves.
+
+To me, as a psychologist, the most interesting question about both of these is
+whether they represent a process of aggregation or interaction. Does problem
+solving just add up as you add more generations or more people to
+the group, or are there interactions, places where the group performs
+differently than the sum of its parts.
+
+I'm going to argue today that we actually know a fair amount about the effects
+of group size on problem solving, but we actually don't know very much about
+the effects on inheritance on problem solving.
 -->
 
-# Increasing acquisition costs[^var]
+# When does the group outperform the individual?
 
-```{r mesoudi-2011-fig2a}
-crotchet::draw_image("img/mesoudi-2011-fig2a.png")
-```
+Diverse groups can avoid premature convergence.[^diverse]  
+Group decision making can improve through confidence matching.[^decision]  
+Groups can sustain more complex innovations.[^groups]
 
-[^var]: [Fig. 2A, @Mesoudi:2011fn]
+[^diverse]: @Hong:2004gt
+[^decision]: @Bahrami:2010jl
+[^groups]: @Derex:2013kk
 
-# Team structures
+
+<!--
+First let's look at what we know about where groups outperform the individuals
+in them.
+
+One of the more interesting findings in this line of research is where
+diverse groups can outperform homogeneous`ones in cases where there
+are locally optimal solutions. The diverse groups are able to maintain
+a wider search area, and are less likely to converge prematurely.
+
+A similar principle applies to diverse networks -- basically networks that are
+not fully connected. In these cases, a sparsely connected network of 
+individuals can outperform a fully connected network when the fully
+connected network converges prematurely without fully searching the solution
+space.
+
+Another case where groups can outperform individuals is in some confidence
+matching tasks, so in this study, by allowing dyads to confer their answers
+in a perceptual decision making task, both individuals were able to perform
+better than the best individual in the group responding alone.
+
+Finally we have the cases where groups are able to sustain more complex
+innovations simply through specialization, where individuals learn
+to get good at one thing and learn from others rather than trying to
+get good at everything at once.
+-->
+
+# Assembly bonus effects in group memory tasks
+
+Groups remember more items, but each person's memory is not improved.
+
+**Comparing groups to individuals requires adequate controls.**
+
+# Measuring the effects of cultural inheritance on problem solving
 
 ```{r team-structures-1, out.height="80%", fig.align="center"}
 crotchet::draw_graphviz("team-structures", package = "totems")
@@ -167,6 +189,12 @@ crotchet::draw_image("recipes.gv", package = "totems")
 
 ```{r landscape, out.height="80%"}
 crotchet::draw_image("landscape-sample.gv", package = "totems")
+```
+
+# Experiment 1: Simple diachronic inheritance
+
+```{r team-structures-50min, fig.align="center"}
+crotchet::draw_graphviz("team-structures-50min", package = "totems")
 ```
 
 # Experiment 1: Simple diachronic inheritance
@@ -217,6 +245,20 @@ gridExtra::grid.arrange(
   nrow = 1
 )
 ```
+
+# Summary
+
+Can cultural inheritance improve the problem solving abilities of future generations?
+
+- A diachronic strategy is comparable when controlling for labor time.
+- A diachronic strategy remediates the cost of fixation.
+- A diachronic strategy is more scalable than a sychronic strategy.
+
+# The effects of cultural inheritance on problem solving ability
+
+**Pierce Edmiston**, Max Derex, Gary Lupyan  
+pedmiston@wisc.edu  
+[github.com/pedmiston/team-structures](https://github.com/pedmiston/team-structures)
 
 # References {.allowframebreaks}
 

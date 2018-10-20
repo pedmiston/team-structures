@@ -679,14 +679,13 @@ innovations_by_generation_preds <- expand.grid(
 innovations_by_generation_plot <- ggplot(Innovations) +
   aes(Generation, NumInnovations, color = StrategyLabel) +
   geom_line(aes(GenerationJittered, group = TeamID, color = Strategy),
-            size = 0.4, alpha = 0.6) +
-  geom_line(aes(group = 1), data = innovations_by_generation_preds,
-            size = 1.2) +
-  geom_errorbar(aes(ymin = NumInnovations-SE, ymax = NumInnovations+SE),
-                data = innovations_by_generation_preds,
-                width = 0.2, size = 1.2) +
+            size = 0.8, alpha = 0.6) +
+  geom_ribbon(aes(ymin = NumInnovations-SE, ymax = NumInnovations+SE, fill = Strategy),
+                data = innovations_by_generation_preds, alpha = 0.4,
+              size = 0) +
   facet_wrap("Strategy") +
-  scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
+  scale_color_manual(values = t_$color_picker(c("blue", "orange"))) +
+  scale_fill_manual(values = t_$color_picker(c("blue", "orange"))) +
   scale_y_continuous("Number of innovations", breaks = seq(0, 40, by = 5)) +
   theme(
     legend.position = "none",
@@ -809,8 +808,8 @@ learning_times_plot <- ggplot(StageTimesSelfOther) +
                 data = learning_times_preds, width = 0.2) +
   facet_wrap("Strategy") +
   scale_y_continuous("Learning time (min)") +
-  scale_fill_manual(values = t_$color_picker(c("blue", "green"))) +
-  scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
+  scale_fill_manual(values = t_$color_picker(c("orange", "blue"))) +
+  scale_color_manual(values = t_$color_picker(c("orange", "blue"))) +
   theme(legend.position = "none",
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank())
@@ -897,12 +896,12 @@ first_discovery_by_generation_plot <- ggplot(FirstDiscovery) +
            alpha = 0.6, width = 0.8) +
   geom_errorbar(aes(ymin = NumGuesses-SE, ymax = NumGuesses+SE),
                 data = first_discovery_by_generation_preds,
-                width = 0.1) +
+                width = 0.2) +
   facet_wrap("Strategy") +
   scale_x_continuous(breaks = 2:4) +
   scale_y_continuous("Number of guesses") +
-  scale_fill_manual(values = t_$color_picker(c("blue", "green"))) +
-  scale_color_manual(values = t_$color_picker(c("blue", "green"))) +
+  scale_fill_manual(values = t_$color_picker(c("orange", "blue"))) +
+  scale_color_manual(values = t_$color_picker(c("orange", "blue"))) +
   theme(legend.position = "none",
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank())
@@ -999,14 +998,15 @@ max_innovations_by_teamsize_preds <- expand.grid(
 
 set.seed(432)
 max_innovations_by_teamsize_plot <- ggplot(Innovations) +
-  aes(StrategyLabel, NumInnovations) +
+  aes(factor(NumPlayers), NumInnovations) +
   geom_bar(aes(fill = StrategyLabel), stat = "identity", alpha = 0.6,
            data = max_innovations_by_teamsize_preds) +
-  geom_linerange(aes(ymin = NumInnovations-SE, ymax = NumInnovations+SE),
-                 data = max_innovations_by_teamsize_preds) +
-  geom_point(aes(color = StrategyLabel), shape = 1,
-             position = position_jitter(width = 0.2, height = 0)) +
-  facet_wrap("NumPlayersLabel") +
+  geom_point(aes(color = StrategyLabel),
+             position = position_jitter(width = 0.3, height = 0)) +
+  geom_errorbar(aes(ymin = NumInnovations-SE, ymax = NumInnovations+SE),
+                data = max_innovations_by_teamsize_preds, width=0.3) +
+    facet_wrap("StrategyLabel") +
+  scale_x_discrete("Group size") +
   scale_fill_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
   scale_color_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
   scale_y_continuous("Number of innovations", breaks = seq(0, 30, by = 2), expand = c(0, 0), limits = c(0, 27)) +
@@ -1017,7 +1017,6 @@ max_innovations_by_teamsize_plot <- ggplot(Innovations) +
     panel.grid.minor.y = element_blank()
   ) +
   xlab("")
-
 
 # ** BotsPlayers ----
 data("BotsPlayers")
@@ -1036,10 +1035,20 @@ max_guesses <- max(BotsPlayers$n_guesses)
 BotsPlayersFinal <- BotsPlayers %>%
   filter((n_players == min_players & n_guesses == min_guesses) | (n_players == max_players & n_guesses == max_guesses)) %>%
   filter_final_round() %>%
-  mutate(num_innovations = inventory_size - 6)
+  mutate(num_innovations = inventory_size - 6) %>%
+  mutate(Strategy = str_to_title(strategy)) %>%
+  recode_strategy()
 
 bots_team_size_plot <- ggplot(BotsPlayersFinal) +
-  aes(strategy, num_innovations) +
-  geom_bar(aes(fill = strategy), stat = "summary", fun.y = "mean", alpha = 0.6) +
-  geom_point(aes(color = strategy), shape = 1, position = position_jitter(width = 0.2)) +
-  facet_wrap("n_players")
+  aes(factor(n_players), num_innovations) +
+  geom_bar(aes(fill = StrategyLabel), stat = "summary", fun.y = "mean", alpha = 0.6) +
+  # geom_point(aes(color = StrategyLabel), position = position_jitter(width = 0.3)) +
+  facet_wrap("StrategyLabel") +
+  scale_x_discrete("Group size") +
+  scale_y_continuous("Number of innovations", breaks = 0:10) +
+  scale_fill_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
+  scale_color_manual(values = c(t_$synchronic_color, t_$diachronic_color)) +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_blank()
+  )
