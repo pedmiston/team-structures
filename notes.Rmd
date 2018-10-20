@@ -40,7 +40,7 @@ gridExtra::grid.arrange(
 )
 ```
 
-<!--
+
 Here are two computers.
 
 The one on the left is a portion of the Difference Engine, a one-of-a-kind
@@ -62,7 +62,7 @@ that individuals struggle to solve on their own.
 
 The question I'm interested in is WHY.
 Why are cultures better at solving problems than individuals?
--->
+
 
 # Why are cultures better at solving problems than individuals?
 
@@ -74,7 +74,7 @@ Group size
 
 **Does culture have an impact on problem solving ability?**
 
-<!--
+
 There are two reasons I want to talk about today. The first is the idea
 of inheritance: that we can pass our knowledge from one generation to
 the next, which means that problem solving can extend far longer than any
@@ -93,7 +93,7 @@ performs better than the sum of its parts?
 I'm going to argue that we actually know a fair amount about the effects
 of group size on problem solving ability, but we actually don't know very much
 about the effects on inheritance on problem solving.
--->
+
 
 # When does the group outperform the best individual?
 
@@ -105,7 +105,7 @@ about the effects on inheritance on problem solving.
 [^search]: @Hong:2004gt; @Derex:2016hj
 [^decision]: @Bahrami:2010jl
 
-<!--
+
 When does the group outperform the best individual?
 
 From the perspective of cognitive psychology,
@@ -126,7 +126,7 @@ Another class of problems is in perceptual decision making under uncertainty,
 where communicating with someone else about what you think you saw can improve
 the performance of the group beyond what would have been achieved by the
 best individual working alone.
--->
+
 
 # When is it more effective to inherit from a previous generation?
 
@@ -135,7 +135,7 @@ best individual working alone.
 - Previous experiments have been interested in _capacity_, not _efficiency_.
 - Models have been used to argue that it doesn't need to be particularly efficient.
 
-<!--
+
 Now let me ask a parallel question about the effects of inheritance on
 problem solving.
 
@@ -151,7 +151,7 @@ Also, theory and models have been used to argue that cultural inheritance
 doesn't need to be particularly efficient in order to be beneficial.
 
 So how do we answer this question?
--->
+
 
 # Measuring the effects of cultural inheritance on problem solving
 
@@ -159,7 +159,7 @@ So how do we answer this question?
 crotchet::draw_graphviz("team-structures", package = "totems")
 ```
 
-<!--
+
 Here is my answer to this question. If we want to understand the effects
 of cultural inheritance on problem solving, we need to compare this strategy,
 which I refer to as "diachronic problem solving", to alternative ways
@@ -167,7 +167,7 @@ of solving the same set of problems. The two alternative strategies I'm
 most interested in are isolated individuals working alone, and synchronic
 problem solving, which is a more traditional group work structure where
 people are working in parallel.
--->
+
 
 # Types of time
 
@@ -181,8 +181,8 @@ gridExtra::grid.arrange(
 )
 ```
 
-<!--
--->
+
+
 
 # All team structure conditions
 
@@ -190,8 +190,8 @@ gridExtra::grid.arrange(
 crotchet::draw_graphviz("team-structures-all", package = "totems")
 ```
 
-<!--
--->
+
+
 
 # The Totem Game [@Derex:2015cbb]
 
@@ -199,8 +199,8 @@ crotchet::draw_graphviz("team-structures-all", package = "totems")
 draw_image("gameplay", package = "totems")
 ```
 
-<!--
--->
+
+
 
 # Recipes
 
@@ -208,8 +208,8 @@ draw_image("gameplay", package = "totems")
 crotchet::draw_image("recipes.gv", package = "totems")
 ```
 
-<!--
--->
+
+
 
 # Solution landscape
 
@@ -217,8 +217,8 @@ crotchet::draw_image("recipes.gv", package = "totems")
 crotchet::draw_image("landscape-sample.gv", package = "totems")
 ```
 
-<!--
--->
+
+
 
 # Experiment 1: Simple diachronic inheritance
 
