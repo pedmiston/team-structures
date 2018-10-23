@@ -49,9 +49,9 @@ completed, or at least not in his lifetime. The difference engine was designed
 to compute arbitrary functions, so it was a very early computer.
 
 On the right, we have the inside of an Apple Watch S3 --- a solid state computer
-you can wear on your wrist, with no moving parts. The Apple Watch is made by a
-company with over 120,000 employees, worth over one trillion dollars, that makes
-about 4 million of these every quarter.
+you can wear on your wrist, made by a company with over 120,000 employees that
+is worth over one trillion dollars. Apple makes about 4 million of these every
+quarter.
 
 By every measure I can think of, the Apple Watch is a much better computer than
 the Difference Engine, and this is the kind of cumulative cultural evolution I
@@ -101,13 +101,16 @@ effects on inheritance on problem solving.
 
 **Not very often!**
 
-Group benefits in search tasks[^search]:
+Group benefits in search tasks:[^search]
 
 - Wider search
 - Avoid premature convergence
 - Better exploitation
 
+Groups as information processors.[^information]
+
 [^search]: e.g., @Hong:2004gt; @Mason:2012jx; @Derex:2016hj
+[^information]: @Hinsz:1997gh; @Woolley:2010ci
 
 <!--
 When does working together in a group improve the performance
@@ -124,24 +127,25 @@ these cases, working in a group tends to help by widening the search,
 preventing premature convergence on locally optimal solutions, and
 making it easier to exploit optimal solutions.
 
-So we know that working in a group doesn't always improve problem
-solving, but there are decently well-defined situations in which
-it does seem to help.
+In general, there is a view in the group problem solving literature
+that groups often perform differently than their parts. So for example,
+in predicting how a group will do on a set of intelligence tests, it
+isn't helpful to know the IQs of the individual members, but nonetheless
+the performance of the group is highly correlated across tasks.
 -->
 
-# When is it more effective to inherit from a previous generation?
+# When does inheritance improve problem solving?
 
 **Hard to answer!**
 
 - Copying isn't always advantageous, but when it is, it's additive.
-- Transmission chain experiments have studied _capacity_, not _effectiveness_.
+- Transmission experiments demonstrate _capacity_, not _effectiveness_.
 
 <!--
 Now let me ask a parallel question about the effects of inheritance on
 problem solving.
 
-When is it more effective to inherit from a previous generation as opposed
-to solving the same problem individually?
+When does inheriting from a previous generation improve problem solving?
 
 I think this question is much harder to answer.
 
@@ -150,8 +154,8 @@ depends on factors like the stability of the environment and the number of
 parents.
 
 But even when the environment is stable and you have many parents to choose from,
-inheritance is mostly effective because individual lives are limited, not because
-it confers any downstream benefits to future generations.
+inheritance in these models is in the best cases additive -- future generations
+are able to pick up right where the previous generation left off.
 
 The experimental work that has addressed this question, using transmission
 chain designs, has focused more on capacity to inherit from an ancestor
@@ -201,7 +205,9 @@ What's important about this is that I'm controlling for labor hours
 in order to make my comparisons, and that makes these experiments different
 than ones that control for calendar hours.
 
-Each strategy is allotted the same number of labor hours.
+Each strategy is allotted the same number of labor hours. This allows us
+to measure the benefits of inheritance relative to the cost of creating it.
+
 In the middle I'm showing you that the synchronic strategy spends the same
 number of labor hours in fewer calendar hours than the other strategies.
 
@@ -225,8 +231,9 @@ Here I'm showing you all the conditions we ran, and the experiments
 I'm going to tell you about are going to focus on particular
 comparisons out of this set.
 
-But before I talk about the results, I first better tell you
-what problem solving task we had people complete.
+Just to give you a sense of the sample size, we collcted data for
+at least 40 groups in each of the conditions, for a total of about 600
+participants.
 -->
 
 # The Totem Game [@Derex:2015cbb]
@@ -239,9 +246,8 @@ draw_image("gameplay", package = "totems")
 We had participants play the Totem Game, which was designed by
 my collaborator Max Derex.
 
-In the Totem Game, participants combine resources to make tools,
-and combine those tools to make other tools, and so on and so on
-all for the sake of building a sacred totem to appease the gods.
+In the Totem Game, participants are trying to discover tools
+for the sake of building a sacred totem to appease the gods.
 
 This game was originally used to test a number of hypotheses
 related to when groups outperform individuals on the same task,
@@ -384,8 +390,8 @@ bots_team_size_plot + scale_x_discrete("Group size", labels = c("small", "large"
 Can cultural inheritance improve the problem solving abilities of future generations?
 
 - Answering this question requires proper control conditions.
-- A diachronic strategy remediates the cost of fixation.
-- A diachronic strategy is more scalable than a sychronic strategy.
+- Cultural inheritance remediates the cost of fixation.
+- Cultural inheritance scales better than group size.
 
 # Open science
 
