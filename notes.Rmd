@@ -43,22 +43,22 @@ gridExtra::grid.arrange(
 
 Here are two computers.
 
-The one on the left is a portion of the Difference Engine, a one-of-a-kind
+The one on the left is a portion of the Difference Engine, a 15 ton
 machine designed by Charles Babbage in the 1820s, but famously never actually
-completed, or at least not in his lifetime. The difference engine was a machine
-designed to compute arbitrary functions, so it was a very early computer.
+completed, or at least not in his lifetime. The difference engine was designed
+to compute arbitrary functions, so it was a very early computer.
 
-On the right, we have the inside of an Apple Watch S3 --- a solid state
-computer, with no moving parts. Today, about 4 million of these watches
-are created every quarter by Apple, a company worth over one trillion
-dollars with over 120,000 employees.
+On the right, we have the inside of an Apple Watch S3 --- a solid state computer
+you can wear on your wrist, with no moving parts. The Apple Watch is made by a
+company with over 120,000 employees, worth over one trillion dollars, that makes
+about 4 million of these every quarter.
 
-By just about every measure I can think of, the Apple Watch is a much better
-computer than Babbage's 15 ton machine, and this is the kind of cumulative
-cultural evolution I think we can all agree on.
+By every measure I can think of, the Apple Watch is a much better computer than
+the Difference Engine, and this is the kind of cumulative cultural evolution I
+think we can all agree on.
 
-Human populations solve increasingly complex problems over generations
-that individuals struggle to solve on their own.
+Human populations are somehow able to solve increasingly complex problems over
+generations that individuals struggle to solve on their own.
 
 The question I'm interested in is WHY.
 Why are cultures better at solving problems than individuals?
@@ -67,88 +67,95 @@ Why are cultures better at solving problems than individuals?
 # Why are cultures better at solving problems than individuals?
 
 Inheritance
-:   Knowledge can be passed to the next generation.
+:   Problem solving extends beyond a single lifetime.
 
 Group size
 :   Individuals can coordinate labor in large groups.
 
+\vspace{2em}
+
 **Does culture have an impact on problem solving ability?**
 
 
-There are two reasons I want to talk about today. The first is the idea
-of inheritance: that we can pass our knowledge from one generation to
-the next, which means that problem solving can extend far longer than any
-individual lifetime.
+There are two answers to this question I want to talk about today. The first is
+the idea of inheritance: because we can pass our knowledge from one generation
+to the next, problem solving can extend far longer than any individual
+lifetime.
 
-The second reason is related to group size. This is the idea that individuals
+The second answer is related to group size. This is the idea that individuals
 can coordinate their labor in groups to accomplish something that they couldn't
-by themselves.
+do by themselves.
 
 To me, as a psychologist, the most interesting question is whether
 culture in either case actually has an impact on problem solving ability.
 Does problem solving just add up as you add more generations or more
 people to the group, or are there interactions, places where the group
-performs better than the sum of its parts?
+actually performs better than the sum of its parts?
 
-I'm going to argue that we actually know a fair amount about the effects
-of group size on problem solving ability, but we actually don't know very much
-about the effects on inheritance on problem solving.
+I'm going to argue that we know a fair amount about the effects of working in a
+group on problem solving ability, but we actually don't know very much about the
+effects on inheritance on problem solving.
 
 
-# When does the group outperform the best individual?
+# When does working in a group improve problem solving?
 
 **Not very often!**
 
-- Search tasks[^search]
-- Perceptual decision making[^decision]
+Group benefits in search tasks[^search]:
 
-[^search]: @Hong:2004gt; @Derex:2016hj
-[^decision]: @Bahrami:2010jl
+- Wider search
+- Avoid premature convergence
+- Better exploitation
+
+[^search]: e.g., @Hong:2004gt; @Mason:2012jx; @Derex:2016hj
 
 
-When does the group outperform the best individual?
+When does working together in a group improve the performance
+of its members?
 
-From the perspective of cognitive psychology,
-the answer to this question is "not very often". For most problem solving tasks
-that individuals can do alone, making a group do the same task doesn't
-usually make them do it any better.
+From the perspective of cognitive psychology, the answer to this question is
+"not very often". For most problem solving tasks that individuals can do alone,
+making them do it in a group doesn't usually make them do it any better.
 
-But this makes the cases where groups do seem to benefit
-individuals all the more interesting.
+But there is one class of problems where groups tend to do better than
+individuals, and that is in search tasks. These are problems where people
+need to search a space of possible solutions looking for the best ones. In
+these cases, working in a group tends to help by widening the search, 
+preventing premature convergence on locally optimal solutions, and
+making it easier to exploit optimal solutions.
 
-One class of problems where groups generally tend to do better
-is in search tasks. These are cases where people need to search
-a space of possible solutions looking for the best ones. In these
-cases, working in a group tends to help by widening the search,
-and making it easier to exploit optimal solutions.
-
-Another class of problems is in perceptual decision making under uncertainty,
-where communicating with someone else about what you think you saw can improve
-the performance of the group beyond what would have been achieved by the
-best individual working alone.
+So we know that working in a group doesn't always improve problem
+solving, but there are decently well-defined situations in which
+it does seem to help.
 
 
 # When is it more effective to inherit from a previous generation?
 
-**We don't know!**
+**Hard to answer!**
 
-- Previous experiments have been interested in _capacity_, not _efficiency_.
-- Models have been used to argue that it doesn't need to be particularly efficient.
+- Copying isn't always advantageous, but when it is, it's additive.
+- Transmission chain experiments have studied _capacity_, not _effectiveness_.
 
 
 Now let me ask a parallel question about the effects of inheritance on
 problem solving.
 
 When is it more effective to inherit from a previous generation as opposed
-to solving the same set of problems some other way?
+to solving the same problem individually?
 
-I don't think we really have great answers to this question yet.
-Transmission chain experiments have typically been interested
-in the capacity to accumulate improvements, not the efficiency
-of the process as a problem solving strategy.
+I think this question is much harder to answer.
 
-Also, theory and models have been used to argue that cultural inheritance
-doesn't need to be particularly efficient in order to be beneficial.
+From modeling work, we know that copying isn't always advantageous, as it
+depends on factors like the stability of the environment and the number of
+parents.
+
+But even when the environment is stable and you have many parents to choose from,
+inheritance is mostly effective because individual lives are limited, not because
+it confers any downstream benefits to future generations.
+
+The experimental work that has addressed this question, using transmission
+chain designs, has focused more on capacity to inherit from an ancestor
+rather than the effectiveness of inheritance as a problem solving strategy.
 
 So how do we answer this question?
 
@@ -160,16 +167,22 @@ crotchet::draw_graphviz("team-structures", package = "totems")
 ```
 
 
-Here is my answer to this question. If we want to understand the effects
-of cultural inheritance on problem solving, we need to compare this strategy,
-which I refer to as "diachronic problem solving", to alternative ways
-of solving the same set of problems. The two alternative strategies I'm
-most interested in are isolated individuals working alone, and synchronic
-problem solving, which is a more traditional group work structure where
-people are working in parallel.
+Here is my claim.
+
+If we want to understand the effects of cultural inheritance on problem
+solving, we need to compare the effectiveness of this strategy, which I refer
+to as "diachronic problem solving", to alternative ways of solving the same set
+of problems.
+
+The two alternative strategies I'm most interested in are isolated
+individuals working alone, and synchronic problem solving, which is a more
+traditional group work structure where people are working in parallel.
+
+The experiments I'm going to tell you about in a minute all use some
+variant of this design.
 
 
-# Types of time
+# Types of time[^helena]
 
 ```{r types-of-time, fig.width=5, fig.height=2, fig.cap="Team structures controlling for labor time."}
 gridExtra::grid.arrange(
@@ -181,16 +194,39 @@ gridExtra::grid.arrange(
 )
 ```
 
+[^helena]: @Miton:2018ef
 
+
+What's important about this is that I'm controlling for labor hours
+in order to make my comparisons, and that makes these experiments different
+than ones that control for calendar hours.
+
+Each strategy is allotted the same number of labor hours.
+In the middle I'm showing you that the synchronic strategy spends the same
+number of labor hours in fewer calendar hours than the other strategies.
+
+The plot on the right is showing that an isolated strategy has the
+most time for individual learning.
+
+I'm not the only person to argue that controlling for labor hours is
+important. Helena Miton has a great paper that argues for this,
+and there have been debates in the group problem solving literature
+about it as well.
 
 
 # All team structure conditions
 
-```{r team-structures-all, out.height="90%", fig.align="center"}
+```{r team-structures-all, out.height="80%", fig.align="center"}
 crotchet::draw_graphviz("team-structures-all", package = "totems")
 ```
 
 
+Here I'm showing you all the conditions we ran, and the experiments
+I'm going to tell you about are going to focus on particular
+comparisons out of this set.
+
+But before I talk about the results, I first better tell you
+what problem solving task we had people complete.
 
 
 # The Totem Game [@Derex:2015cbb]
@@ -200,6 +236,22 @@ draw_image("gameplay", package = "totems")
 ```
 
 
+We had participants play the Totem Game, which was designed by
+my collaborator Max Derex.
+
+In the Totem Game, participants combine resources to make tools,
+and combine those tools to make other tools, and so on and so on
+all for the sake of building a sacred totem to appease the gods.
+
+This game was originally used to test a number of hypotheses
+related to when groups outperform individuals on the same task,
+and I encourage you to check out the original paper if you want
+to know more.
+
+In this case, we extended the game to allow for diachronic
+inheritance. For these participants, rather than starting off
+with nothing, they began the experiment with access to the recipes
+that had been discovered by one participant in the previous generation.
 
 
 # Recipes
@@ -220,74 +272,128 @@ crotchet::draw_image("landscape-sample.gv", package = "totems")
 
 
 
-# Experiment 1: Simple diachronic inheritance
+# Overview of experiments
 
-```{r team-structures-50min, fig.align="center"}
+1. Simple diachronic inheritance
+2. Diachronic versus isolated
+3. Scalability of diachronic and synchronic
+
+# Simple diachronic inheritance
+
+```{r team-structures-50min, out.height="80%", fig.align="center"}
 crotchet::draw_graphviz("team-structures-50min", package = "totems")
 ```
 
-# Experiment 1: Simple diachronic inheritance
+# Simple diachronic inheritance
 
 ```{r innovations-50min}
 grid.arrange(
-  innovation_rate_50min_plot + ggtitle("A"),
-  num_innovations_50min_plot + ggtitle("B"),
+  innovation_rate_50min_plot,
+  num_innovations_50min_plot,
   nrow = 1,
   widths = c(0.55, 0.45)
 )
 ```
 
-# Experiment 2: Diachronic versus individual inheritance
+
+Here are the results.
+
+We replicated the original finding that working in a synchronic group is more
+effective than working individually even when you control for labor hours,
+but what I was really interested in was how the diachronic group would
+pattern out. And we can see that the diachronic group falls in the middle ---
+not signifantly more effective than an isolated strategy, but not significantly
+less effective than a synchronic strategy.
+
+So the main takeaway here is that the simplest form of diachronic inheritance
+is comparable to these other strategies, and the main question then is what
+happens when we add more generations to this chain.
+
+
+# Diachronic versus individual inheritance
 
 ```{r team-structures-selfother}
 crotchet::draw_graphviz("team-structures-selfother", package = "totems")
 ```
 
-# Experiment 2
+
+For the next experiment we compared a diachronic strategy
+over four generations to an isolated strategy where the same
+person came back for four sessions, spaced at least one
+day apart.
+
+
+# Diachronic versus individual inheritance
 
 ```{r innovations-by-generation-selfother}
 innovations_by_generation_plot
 ```
 
-# Experiment 2
 
-```{r diachronic-v-isolated-inheritance}
-gridExtra::grid.arrange(
-  learning_times_plot + ggtitle("A"),
-  first_discovery_by_generation_plot + ggtitle("B"),
-  ncol = 1
-)
+If we just look at the overall number of innovations, we see the cost
+of diachronic inheritance, as the people in the isolated strategy
+discovered more tools after four sessions than the people in the
+diachronic strategy.
+
+But it gets a little more interesting when we dig into why the isolated
+strategy is able to pull ahead.
+
+
+# Learning times
+
+```{r learning-times}
+learning_times_plot
 ```
 
-# Experiment 3
+
+Here I'm showing you the amount of time out of the 25 minute session
+that each person spent recreating the items they had inherited as opposed
+to attempting to discover new items.
+
+
+# First discovery
+
+```{r first-discovery}
+first_discovery_by_generation_plot
+```
+
+# Scalability of diachronic and synchronic strategies
+
+Do the diachronic and synchronic strategies diverge when more people are added to the group?
+
+# Innovations by team size
 
 ```{r scalability}
 max_innovations_by_teamsize_plot
 ```
 
-# Experiment 3
+# Simulations of team size
 
 ```{r scalability-simulations}
-gridExtra::grid.arrange(
-  max_innovations_by_teamsize_plot,
-  bots_team_size_plot,
-  nrow = 1
-)
+bots_team_size_plot + scale_x_discrete(labels = c("small", "large"))
 ```
 
 # Summary
 
 Can cultural inheritance improve the problem solving abilities of future generations?
 
-- A diachronic strategy is comparable when controlling for labor time.
+- Answering this question requires proper control conditions.
 - A diachronic strategy remediates the cost of fixation.
 - A diachronic strategy is more scalable than a sychronic strategy.
+
+# Open science
+
+`github.com/pedmiston/team-structures`  
+
+```{r r-package, echo=TRUE, eval=FALSE}
+remotes::instalL_github("pedmiston/totems-data")  # installs "totems" package
+data(package = "totems")                          # lists all datasets in package
+```
 
 # The effects of cultural inheritance on problem solving ability
 
 **Pierce Edmiston**, Max Derex, Gary Lupyan  
 pedmiston@wisc.edu  
-[github.com/pedmiston/team-structures](https://github.com/pedmiston/team-structures)
 
 # References {.allowframebreaks}
 

@@ -939,7 +939,6 @@ Innovations50min <- Guesses %>%
 
 Innovations100min <- Guesses %>%
   filter_teamsize() %>%
-  drop_isolated() %>%
   recode_guess_type("UniqueSessionGuess", "UniqueSessionResult") %>%
   group_by(SessionID) %>%
   summarize(NumInnovations = sum(GuessType == "unique_item")) %>%
