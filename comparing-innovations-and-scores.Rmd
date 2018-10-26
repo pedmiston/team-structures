@@ -9,7 +9,7 @@ opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE)
 # Read all knitr chunks in external .R file
 read_chunk("team-structures.R")
 ```
-```{r Setup}
+```{r team-structures, include=FALSE}
 ```
 ```{r 50min-num-innovations}
 data("Sampled")
