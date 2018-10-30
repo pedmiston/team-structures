@@ -7,12 +7,13 @@ output:
 library(knitr)
 opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE)
 # Read all knitr chunks in external .R file
-read_chunk("team-structures.R")
+read_chunk("R/team-structures.R")
 ```
 ```{r team-structures, include=FALSE}
 ```
-```{r 50min-num-innovations}
+```{r 50min-num-innovations, fig.width=8}
 data("Sampled")
+library(patchwork)
 
 Sampled50min <- Sampled %>%
   filter_50min() %>%
@@ -39,5 +40,21 @@ innovation_rate_50min_plot <- ggplot(Sampled50min) +
   guides(linetype = "none", size = "none") +
   t_$base_theme +
   theme(legend.position = "none")
-innovation_rate_50min_plot
+
+score_rate_50min_plot <- ggplot(Sampled50min) +
+  aes(TeamTime, Score) +
+  geom_line(aes(color = StrategyLabel,
+                group = interaction(StrategyLabel, Generation),
+                size = Inheritance),
+            stat = "summary", fun.y = "mean") +
+  # geom_text(aes(label = SessionTypeSimple, color = StrategyLabel), data = labels, fontface = "bold", size = 2.5) +
+  t_$scale_x_team_time +
+  t_$scale_color_strategy +
+  scale_size_manual(values = c(1.8, 1.0)) +
+  scale_y_continuous("Score") +
+  guides(linetype = "none", size = "none") +
+  t_$base_theme +
+  theme(legend.position = "none")
+
+innovation_rate_50min_plot + score_rate_50min_plot
 ```
